@@ -83,7 +83,7 @@ Router.configure({
 	var routeName = this.context.route.name;
 	clearErrors();
 	// no need to check at these URLs
-	if (_.include(['login', 'passwordReset', 'postsList', 'postPage', 'accessDenied' /*, etc */], routeName))
+	if (_.include(['login', 'passwordReset', 'newPostsList', 'bestPostsList', 'home', 'postPage', 'accessDenied' /*, etc */], routeName))
 	    return;
 	
 	var user = Meteor.user();

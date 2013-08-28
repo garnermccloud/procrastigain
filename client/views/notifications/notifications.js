@@ -7,6 +7,13 @@ Template.notifications.helpers({
   }
 });
 
+Template.notification.helpers({
+    post: function() {
+	var post = {_id: this.postId};
+	return post;
+    }
+});
+
 Template.notification.events({
   'click a': function() {
     Notifications.update(this._id, {$set: {read: true}});
