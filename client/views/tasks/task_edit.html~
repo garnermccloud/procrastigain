@@ -1,0 +1,34 @@
+<template name="taskEdit">
+  {{#with task}}
+    <form class="main">
+
+      <div class="control-group">
+          <label class="control-label" for="title">Title</label>
+          <div class="controls">
+              <input name="title" type="text" value="{{title}}" placeholder="Name your task"/>
+          </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="dateDue">Due Date</label>
+        <div class="controls">
+            <input name="dateDue" type="date" value="{{dateDue}}"/>
+        </div>
+    </div>
+
+
+
+      <div class="control-group">
+          <div class="controls">
+              <input type="submit" value="Submit" class="btn btn-primary submit"/>
+          </div>
+      </div>
+      <hr/>
+      <div class="control-group">
+          <div class="controls">
+              <a class="btn btn-danger delete" href="#">Delete post</a>
+          </div>
+      </div>
+    </form>
+  {{/with}}
+</template>

@@ -1,0 +1,11 @@
+<template name="taskItem">
+  <div class="task">
+    <div class="task-content">
+      <h3>{{title}} <span>{{dateDue}}</span></h3>
+      <p>
+	<a href="{{pathFor 'taskEdit' this}}">Edit</a>
+      </p>
+    </div>
+    <a href="{{pathFor 'taskPage' this}}" class="discuss btn">Discuss</a>
+  </div>
+</template>

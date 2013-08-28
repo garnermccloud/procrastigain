@@ -1,0 +1,36 @@
+<template name="header">
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="{{pathFor 'home'}}">Procrastigain</a>
+      <div class="nav-collapse collapse"> 
+        <ul class="nav">
+      
+      
+	  <li class="{{activeRouteClass 'home' 'newPostsList'}}">
+	    <a href="{{pathFor 'home'}}">New</a>
+	  </li>
+	  <li class="{{activeRouteClass 'bestPostsList'}}">
+	    <a href="{{pathFor 'bestPostsList'}}">Best</a>
+	  </li>
+	  {{#if currentUser}}
+	  <li class="{{activeRouteClass 'tasksList'}}"><a  href="{{pathFor 'tasksList'}}">My Tasks</a></li>
+	  <li><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
+	  <li><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
+	  <li class="dropdown">
+              {{> notifications}}
+            </li>
+          {{/if}}
+	
+	</ul>
+	<ul class="nav pull-right">
+          <li>{{loginButtons}}</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+</template>

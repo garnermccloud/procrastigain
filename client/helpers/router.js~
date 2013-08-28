@@ -1,0 +1,94 @@
+userId = Meteor.userId();
+
+Subscriptions = {
+    postsHandle: Meteor.subscribeWithPagination('posts', 10),
+    tasks: Meteor.subscribe('tasks'),
+    comments: Deps.autorun(function() {
+	return Meteor.subscribe('comments', Session.get('currentPostId'));
+    }),
+    notifications: Meteor.subscribe('notifications')
+};
+
+
+
+
+
+Router.map(function() {
+    this.route('postsList', {path: '/'});
+    this.route('tasksList', {
+	path: '/tasks',
+	waitOn: Subscriptions['tasks']
+    });
+    this.route('postPage', {
+	path: '/posts/:_id',
+	data: function() { Session.set('currentPostId', this.params._id);
+			 return Posts.findOne(this.params._id);},    
+	waitOn: Subscriptions['postsHandle']
+    });
+
+    this.route('postEdit', {
+        path: '/posts/:_id/edit',
+        data: function() { Session.set('currentPostId', this.params._id);
+                         return Posts.findOne(this.params._id);},
+        waitOn: Subscriptions['postsHandle']
+    });
+
+
+    this.route('postSubmit', {path: '/submit/post'});
+    
+    this.route('taskPage', {
+	path: '/tasks/:_id',
+	data: function() { Session.set('currentTaskId', this.params._id);
+			 return Tasks.findOne(this.params._id);},
+	waitOn: Subscriptions['tasks']
+    });
+
+    this.route('taskEdit', {
+        path: '/tasks/:_id/edit',
+        data: function() { Session.set('currentTaskId', this.params._id);
+                         return Tasks.findOne(this.params._id);},
+        waitOn: Subscriptions['tasks']
+    });
+    this.route('taskSubmit', {path: '/submit/task'});
+
+    this.route('login', {path: '/login'});
+    this.route('accessDenied', {path: '/accessDenied'});
+
+});
+
+
+
+
+
+Router.configure({
+    layout: 'main',
+
+
+    before: function() {
+	var routeName = this.context.route.name;
+	clearErrors();
+	// no need to check at these URLs
+	if (_.include(['login', 'passwordReset', 'postsList', 'postPage', 'accessDenied' /*, etc */], routeName))
+	    return;
+	
+	var user = Meteor.user();
+	if (! user) {
+	    this.render(Meteor.loggingIn() ? this.loadingTemplate : 'accessDenied');
+	    return this.stop();
+	}
+    },
+
+
+  notFoundTemplate: 'notFound',
+
+  loadingTemplate: 'loading',
+/*
+  renderTemplates: { 
+    /* render the templated named footer to the 'footer' yield 
+    'footer': { to: 'footer' },
+
+    /* render the template named sidebar to the 'sidebar' yield 
+    'sidebar': { to: 'sidebar' }
+  }
+*/
+});

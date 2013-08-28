@@ -1,0 +1,10 @@
+<template name="postPage">
+  {{#with currentPost}}
+  {{> postItem}}
+  <ul class="comments">
+    {{#each comments}}
+    {{> comment}}
+    {{/each}}
+  </ul>
+  {{/with}}
+</template>

@@ -1,0 +1,14 @@
+
+<template name="main">
+  <head>
+    <title>Procrastigain</title>
+  </head>
+  <body>
+    <div class="container">
+      {{> header}}
+      <div id="main" class="row-fluid">
+	{{yield}}
+      </div>
+    </div>
+  </body>
+</template>

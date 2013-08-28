@@ -1,0 +1,5 @@
+Template.taskPage.helpers({
+  currentTask: function() {
+    return Posts.findOne(Session.get('currentTaskId'));
+  }
+});
