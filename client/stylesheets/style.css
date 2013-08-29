@@ -136,3 +136,7 @@ body {
     float: right;
     margin-top: 7px;
 }
+
+label {
+ font-weight:bold;
+}

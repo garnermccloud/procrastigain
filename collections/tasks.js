@@ -29,8 +29,12 @@ Meteor.methods({
       if (!taskAttributes.dateDue)
 	  throw new Meteor.Error(422, 'Please fill in a due date');
     
+      // ensure the task has a duration
+      if (taskAttributes.duration == 0)
+	  throw new Meteor.Error(422, 'Please fill in length of task');
+
     // pick out the whitelisted keys
-    var task = _.extend(_.pick(taskAttributes, 'title', 'dateDue'), {
+    var task = _.extend(_.pick(taskAttributes, 'title', 'dateDue', 'duration', 'appeal'), {
       userId: user._id, 
       author: user.username, 
       submitted: new Date().getTime()
@@ -54,7 +58,17 @@ Meteor.methods({
         if (!taskAttributes.title)
             throw new Meteor.Error(422, 'Please fill in a title');
 	
-	 // pick out the whitelisted keys
+	
+	// ensure the task has a due date
+	if (!taskAttributes.dateDue)
+            throw new Meteor.Error(422, 'Please fill in a due date');
+	
+	// ensure the task has a duration
+	if (taskAttributes.duration == 0)
+            throw new Meteor.Error(422, 'Please fill in length of task');
+	
+	
+	// pick out the whitelisted keys
         Tasks.update(taskId, {$set: taskAttributes}, function(error) {
             if (error) {
                 // display the error to the user

@@ -19,8 +19,8 @@
 	  </li>
 	  {{#if currentUser}}
 	  <li class="{{activeRouteClass 'tasksList'}}"><a  href="{{pathFor 'tasksList'}}">My Tasks</a></li>
-	  <li><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
-	  <li><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
+	  <li class="{{activeRouteClass 'postSubmit'}}"><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
+	  <li class="{{activeRouteClass 'taskSubmit'}}"><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
 	  <li class="dropdown">
               {{> notifications}}
             </li>
