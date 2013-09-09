@@ -1,0 +1,14 @@
+Template.workspace.helpers({
+  TasksList: function() {
+      var main = Tasks.findOne({}, {sort: {dateDue: 1, duration: -1, appeal: 1}});
+      var alt1 = Tasks.findOne({_id: {$ne: main._id}}, {sort: {dateDue: 1, appeal: -1}});
+      var alt2 = Tasks.findOne({$and: [ {_id: {$ne: main._id}}, {_id: {$ne: alt1._id}} ] }, {sort: {dateDue: 1, appeal: -1}});
+      var TasksList = {
+	  main: main,
+	  alt1: alt1,
+	  alt2: alt2
+      };
+      return TasksList;
+  }
+
+});

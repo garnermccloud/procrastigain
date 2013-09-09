@@ -4,6 +4,19 @@ newPostsHandle = Meteor.subscribeWithPagination('newPosts', 10);
 
 bestPostsHandle = Meteor.subscribeWithPagination('bestPosts', 10);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 Subscriptions = {
     newPosts: newPostsHandle,
     bestPosts: bestPostsHandle,
@@ -65,6 +78,15 @@ Router.map(function() {
         waitOn: Subscriptions['tasks']
     });
     this.route('taskSubmit', {path: '/submit/task'});
+    
+    this.route('workspace', {path: '/workspace'});
+    this.route('working', {
+	path: '/working/:_id',
+        data: function() { Session.set('currentTaskId', this.params._id);
+                         return Tasks.findOne(this.params._id);},
+        waitOn: Subscriptions['tasks']
+    });
+    this.route('procrastigaining', {path: '/procrastigaining'});    
 
     this.route('login', {path: '/login'});
     this.route('accessDenied', {path: '/accessDenied'});
