@@ -6,7 +6,29 @@ Template.procrastigaining.helpers({
 });
 
 Template.procrastigaining.rendered = function() {
-    var clock = $('.clock').FlipClock(25*60, {
+    var time = 25*60;
+    clock = $('.clock').FlipClock(time, {
     countdown: true 
     });
+
+    function timeUp() { return clock.getTime().toString() == "-1";};
+    function goToWorkspace() {
+        clock.timer._destroyTimer();
+        Router.go('workspace');
+    };
+    when(timeUp, goToWorkspace, 2000);
+    
+
 };
+
+
+Template.procrastigaining.events({
+    'click .btn-complete': function(e) {
+        e.preventDefault();
+        if (confirm("Wow, you finished the task early?")) {
+
+            Router.go('workspace');
+        }
+    }
+});
+

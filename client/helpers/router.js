@@ -86,7 +86,13 @@ Router.map(function() {
                          return Tasks.findOne(this.params._id);},
         waitOn: Subscriptions['tasks']
     });
-    this.route('procrastigaining', {path: '/procrastigaining'});    
+    this.route('procrastigaining', {path: '/procrastigaining'});
+    this.route('breakTime', {
+	path: '/breakTime',
+	data: function() { var task = {completed: this.params};
+			   return task;
+			 }
+    });
 
     this.route('login', {path: '/login'});
     this.route('accessDenied', {path: '/accessDenied'});

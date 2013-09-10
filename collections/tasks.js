@@ -79,6 +79,63 @@ Meteor.methods({
         });
 	
 	return taskId;
-    }
+    },
+    
+     taskWorkedOn: function(time, id) {
+        var user = Meteor.user();
+
+
+
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to work on a task");
+
+         var currentTask = Tasks.findOne(id);
+	 var duration = currentTask.duration;
+	 var completed = true;
+	 //calculate new duration of task
+	 if (duration < time) {
+	     duration = 0;
+	 } else {
+	     duration = duration - time;
+	     completed = false;
+	 }
+
+
+
+        // pick out the whitelisted keys
+        Tasks.update(currentTask, {$set: {duration: duration}}, function(error) {
+            if (error) {
+                // display the error to the user
+                alert(error.reason);
+            } else {
+
+            }
+        });
+        return completed;
+    },
+
+    taskCompleted: function(duration, id) {
+        var user = Meteor.user();
+	
+	
+	
+        // ensure the user is logged in
+        if (!user)
+            throw new Meteor.Error(401, "You need to login to work on a task");
+	
+        // pick out the whitelisted keys
+        Tasks.update(id, {$set: {duration: duration}}, function(error) {
+            if (error) {
+                // display the error to the user
+                alert(error.reason);
+            } else {
+
+            }
+        });
+        return true;
+    },
+
+
 
 });

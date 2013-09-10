@@ -5,14 +5,14 @@
       <div class="control-group">
         <label class="control-label" for="title">Title</label>
         <div class="controls">
-            <input name="title" type="text" value="{{title}}" placeholder="Name your task"/>
+            <input name="title" type="text" value="{{title}}" placeholder="Name your task" maxlength="100"/>
         </div>
     </div>
 
 
 
     <div class="control-group">
-      <label class="control-label" for="duration">How long should this take?</label>
+      <label class="control-label" for="duration">Time needed to complete</label>
       <div class="controls">
         <input class="input-small" name="duration-hours" type="number" min="0" max="100" value="{{durationHours}}"/>Hour(s)
         <input class="input-small" name="duration-minutes" type="number"  min="0" max="60" value="{{durationMinutes}}"/>Minute(s)

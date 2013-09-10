@@ -5,3 +5,11 @@ window.intercomSettings = {
     created_at: 1234567890,
     app_id: "bbfaf894a517e143ec4a01d02f03006fa2025d53"
   };
+
+function when(conditionFunc, execFunc, interval){
+    if (conditionFunc()){
+        execFunc();
+    }else{
+        setTimeout(function(){ when(conditionFunc, execFunc, interval);}, interval);
+    }
+};

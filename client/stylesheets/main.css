@@ -9,6 +9,12 @@ body {
     background: #eee;
     color: #666666;
 }
+
+p {
+    word-wrap: break-word;
+    overflow: visible;
+}
+
 .navbar { margin-bottom: 10px }
 .navbar .navbar-inner {
     border-radius: 0px 0px 3px 3px;
@@ -130,7 +136,10 @@ body {
     display: inline-block;
     color: #aaaaaa;
 }
-.task .task-content p { margin: 0 }
+.task .task-content p { 
+    margin: 0;
+    work-break: break-all;
+ }
 .task .discuss {
     display: block;
     float: right;
@@ -157,6 +166,8 @@ label {
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.06);
   -webkit-font-smoothing: antialiased;
   border-radius: 10px;
+  min-height: 100px !important;
+  height: auto;
 }
 
 .btn-alt {
@@ -234,6 +245,7 @@ label {
   border-radius: 10px;
 
 }
+
 
 .btn-text {
     align: center;
