@@ -1,4 +1,5 @@
 Meteor.subscribe('notifications');
+Meteor.subscribe('currentUser');
 
 newPostsHandle = Meteor.subscribeWithPagination('newPosts', 10);
 
@@ -86,7 +87,13 @@ Router.map(function() {
                          return Tasks.findOne(this.params._id);},
         waitOn: Subscriptions['tasks']
     });
-    this.route('procrastigaining', {path: '/procrastigaining'});
+    this.route('procrastigaining', {
+	before: function() {  Session.set('currentPostId', this.params._id);},
+	path: '/procrastigaining/:_id',
+	data: function() { return Posts.findOne(this.params._id);},
+	waitOn: Subscriptions['singlePost']
+    });
+    
     this.route('breakTime', {
 	path: '/breakTime',
 	data: function() { var task = {completed: this.params};
@@ -95,6 +102,7 @@ Router.map(function() {
     });
 
     this.route('login', {path: '/login'});
+    this.route('settings', {path: '/settings'});
     this.route('accessDenied', {path: '/accessDenied'});
 
 });

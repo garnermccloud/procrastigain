@@ -44,3 +44,21 @@ Template.workspace.helpers({
   }
 
 });
+
+Template.workspace.events({
+    'click .btn-pg-active': function(e) {
+	e.preventDefault();
+	var post;
+	
+	Meteor.call('procrastigaining', function(error, id) {
+	    if (error)
+		throwError(error.reason);
+	    else {
+		var post = {
+		    _id: id
+		};
+		Router.go('procrastigaining', post);
+	    }
+	});
+    }
+});

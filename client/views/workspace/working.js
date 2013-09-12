@@ -2,7 +2,7 @@
 
 Template.working.rendered = function() {
     
-    var time = 1*60;
+    var time = Meteor.user().taskTime;
     clock = $('.clock').FlipClock(time, {
     countdown: true 
     });

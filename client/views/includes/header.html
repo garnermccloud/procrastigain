@@ -11,25 +11,37 @@
         <ul class="nav">
       
       
-	  <li class="{{activeRouteClass 'home' 'newPostsList'}}">
-	    <a href="{{pathFor 'home'}}">New</a>
-	  </li>
-	  <li class="{{activeRouteClass 'bestPostsList'}}">
-	    <a href="{{pathFor 'bestPostsList'}}">Best</a>
-	  </li>
+	  <li class="{{activeRouteClass 'home' 'newPostsList'}}"><a href="{{pathFor 'home'}}">Recent</a></li>
+	  <li class="{{activeRouteClass 'bestPostsList'}}"><a href="{{pathFor 'bestPostsList'}}">Best</a></li>
 	  {{#if currentUser}}
-	  <li class="{{activeRouteClass 'tasksList'}}"><a  href="{{pathFor 'tasksList'}}">My Tasks</a></li>
+	  
 	  <li class="{{activeRouteClass 'postSubmit'}}"><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
-	  <li class="{{activeRouteClass 'taskSubmit'}}"><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
-         <li class="{{activeRouteClass 'workspace'}}"><a href="{{pathFor 'workspace'}}">Workspace</a></li>
-	  <li class="dropdown">
-              {{> notifications}}
-            </li>
-          {{/if}}
+	  <li class=" dropdown {{activeRouteClass 'tasksList'}}">
+	    <a class="dropdown-toggle" href="{{pathFor 'tasksList'}}">My Tasks</a>
+	    <ul class="dropdown-menu">
+	      <li class="{{activeRouteClass 'taskSubmit'}}"><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
+	    </ul>    
+	  </li>
+	  
+	  
+          <li class="{{activeRouteClass 'workspace'}}"><a href="{{pathFor 'workspace'}}">Workspace</a></li>
+	  
+	  {{/if}}
 	
 	</ul>
 	<ul class="nav pull-right">
-          <li>{{loginButtons}}</li>
+	  {{#if currentUser}}
+	  <li class="dropdown">{{> notifications}}</li>
+	  <li class="{{activeRouteClass 'settings'}}"><a href="{{pathFor 'settings'}}">Settings</a></li>
+	  
+	  <li>
+            {{#constant}}
+            <a id="Intercom" href="mailto:bbfaf894a517e143ec4a01d02f03006fa2025d53@incoming.intercom.io">Support</a>
+            {{/constant}}
+          </li>
+          {{/if}}
+	  <li>{{loginButtons}}</li>
+          
         </ul>
       </div>
     </div>

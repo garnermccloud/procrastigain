@@ -1,0 +1,32 @@
+Template.settings.helpers({
+    taskTime: function() {
+	return currentUser.taskTime / 60;
+    },
+    breakTime: function() {
+	return currentUser.breakTime / 60;
+    }
+});
+
+Template.settings.events({
+    'submit form': function(e) {
+	e.preventDefault();
+
+	//get times in seconds
+	var taskTime =  $(e.target).find('[name=taskTime]').val()*60;
+	var breakTime = $(e.target).find('[name=breakTime]').val()*60;
+	
+	var userProperties = {
+	    taskTime: taskTime,
+	    breakTime: breakTime
+	}
+	
+	Meteor.call('settingsUpdate', userProperties, function(error) {
+	        if (error) {
+		    throwError(error.reason);
+		        }
+	        else {
+		        Router.go('settings';
+		        }
+	    });
+    }
+});

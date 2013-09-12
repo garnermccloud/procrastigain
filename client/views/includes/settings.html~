@@ -1,0 +1,39 @@
+<template name="settings">
+  {{#if currentUser}}
+  <div class="row-fluid">
+    <h2>Workspace Settings</h2>
+  </div>
+  <form class="main">
+    
+    <div class="control-group">
+      <label class="control-label" for="taskTime">Work Session Length</label>
+      <div class="controls">
+        <input class="input-small" name="taskTime" type="number"  min="25" max="55" value="{{taskTime}}"/>Minute(s)
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label" for="breakTime">Break Length</label>
+      <div class="controls">
+        <input class="input-small" name="breakTime" type="number"  min="1" max="5" value="{{breakTime}}"/>Minute(s)
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="procrastigainTime">Procrastigain Length</label>
+      <div class="controls">
+        <input class="input-small" name="procrastigainTime" type="number"  min="10" max="25" value="{{procrastigainTime}}"/>Minute(s)
+      </div>
+    </div>
+
+    
+    
+    
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" value="Submit" class="btn btn-primary submit"/>
+      </div>
+    </div>
+  </form>
+  {{/if}}
+</template>

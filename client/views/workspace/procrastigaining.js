@@ -1,22 +1,41 @@
 Template.procrastigaining.helpers({
-  postUrl: function() {
-      var url = "http://www.smashingmagazine.com/2013/06/13/build-app-45-minutes-meteor/";
-      return url;
-  }
+    post: function() {
+	return Posts.findOne(Session.get('currentPostId'));
+    },
+
+    upvotedClass: function() {
+        var userId = Meteor.userId();
+        if (userId && !_.include(this.upvoters, userId)) {
+            return 'btn-primary upvoteable';
+        } else {
+            return 'disabled';
+        }
+    }
+
+
+    
 });
 
 Template.procrastigaining.rendered = function() {
-    var time = 25*60;
+    var time = Meteor.user().procrastigainTime;
     clock = $('.clock').FlipClock(time, {
     countdown: true 
     });
 
     function timeUp() { return clock.getTime().toString() == "-1";};
-    function goToWorkspace() {
+    function updateProcrastigained() {
         clock.timer._destroyTimer();
-        Router.go('workspace');
+	var currentPostId = Session.get('currentPostId');
+
+	Meteor.call('updateProcrastigained', time, currentPostId, function(error) {
+            if (error)
+                throwError(error.reason);
+            else {
+                Router.go('workspace');
+            }
+        });
     };
-    when(timeUp, goToWorkspace, 2000);
+    when(timeUp, updateProcrastigained, 2000);
     
 
 };
@@ -26,9 +45,22 @@ Template.procrastigaining.events({
     'click .btn-complete': function(e) {
         e.preventDefault();
         if (confirm("Wow, you finished the task early?")) {
-
-            Router.go('workspace');
+	    var currentPostId = Session.get('currentPostId');
+	    var time = Meteor.user().procrastigainTime - parseInt(clock.getTime().toString(),10);
+            Meteor.call('updateProcrastigained', time, currentPostId, function(error) {
+		if (error)
+                    throwError(error.reason);
+		else {
+                    Router.go('workspace');
+		}
+            });
         }
+    },
+
+    'click .upvoteable': function(e) {
+	e.preventDefault();
+	Meteor.call('upvote', this._id);
     }
+
 });
 
