@@ -1,0 +1,163 @@
+<template name="home">
+  <div class="row-fluid jumbotron">
+    <div class="span12">
+      <h1>
+	Because procrastination is actually good.
+      </h1>
+      <p class="lead">
+	Let's make time work for you.
+      </p>
+    </div>
+  </div>
+  <div class="row-fluid pitch">
+    <div class="span5 offset1 video">
+      <img class="img-polaroid" alt="Placeholder" src="http://www.freepixels.com/photos/19/med_070206_symbol_03_27.jpg">
+    </div>
+    <!-- We define a new 'actions' div to contain statistics, order, and share
+	 buttons.-->
+    <div class="span5 actions">
+      <div class="span8 row-fluid offset2">
+	<div class="statistics row-fluid">
+	  <div class="span4">
+	    <!-- linediv-l and linediv-r give dividing lines that look different in
+		 horizontal and vertical layouts, illustrating media queries. -->
+	    <div class="linediv-l">
+	      <h3>
+		362
+	      </h3>
+	      <p>
+		backers
+	      </p>
+	    </div>
+	  </div>
+	  <div class="span4">
+	    <div class="linediv-c">
+	      <h3>
+		$3742
+	      </h3>
+	      <p>
+		of $5,000
+	      </p>
+	    </div>
+	  </div>
+	  <div class="span4">
+	    <div class="linediv-r">
+	      <h3>
+		17
+	      </h3>
+	      <p>
+		days left
+	      </p>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <div class="span10 row-fluid offset1">
+	<!-- Bootstrap progress bar -->
+	<!-- http://twitter.github.io/bootstrap/components.html#progress -->
+	<div class="thermometer progress active">
+	  <div class="bar bar-success" style="width: 74%;">
+	  </div>
+	  <div class="bar bar-warning" style="width: 26%;">
+	  </div>
+	</div>
+      </div>
+      <div class="span6 offset3 order row-fluid">
+	<!-- Standard Bootstrap button. -->
+	<!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
+	<a class="coinbase-button" data-button-style="custom_large" data-button-text="Preorder with Bitcoin" data-code="4d4b84bbad4508b64b61d372ea394dad" href="https://coinbase.com/checkouts/4d4b84bbad4508b64b61d372ea394dad">Preorder With Bitcoin</a>
+	<script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+      </div>
+      <div class="span6 offset3 row-fluid order">
+	<!-- Standard Bootstrap button. -->
+	<!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
+	<button class="btn btn-large btn-inverse">
+	  Reserve Spot in Beta
+	</button>
+      </div>
+      <div class="span10 offset1 social row-fluid">
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+	  <a class="addthis_button_preferred_1"></a>
+	  <a class="addthis_button_preferred_2"></a>
+	  <a class="addthis_button_preferred_3"></a>
+	  <a class="addthis_button_preferred_4"></a>
+	  <a class="addthis_button_compact"></a>
+	  <a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5202f8e834b24a59"></script>
+	<!-- AddThis Button END -->
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row-fluid marketing">
+    <div class="span6">
+      <h3>
+	It's ridiculously easy
+      </h3>
+      <p>
+	You don't feel like you are forced to do anything that you don't want!
+	You get to make the choices, and every one benefits your life.
+      </p>
+      <h3>
+	Your time is never wasted
+      </h3>
+      <p>
+	With our app, every second of your time is used efficiently and productively,
+	helping you achieve more than you ever thought possible.
+      </p>
+    </div>
+    <div class="span6">
+      <h3>
+	Get 3x as much done
+      </h3>
+      <p>
+	Never again feel like you are wasting time doing something just to get
+	away from the task you are avoiding. You are always getting something done,
+	saving you time for the truly fun times in life.
+      </p>
+      <h3>
+	Automatically learns from your habits.
+      </h3>
+      <p>
+	As you use the app, it learns your habits and preferences. It finely attunes to your work style so you become even more productive over time.
+      </p>
+    </div>
+  </div>
+  <hr>
+  <div class="row-fluid faq">
+    <div class="span10 offset1">
+      <h3>
+	FAQ
+      </h3>
+      <div class="accordion" id="accordion2">
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+	    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+	      What does Procrastigain stand for?
+	    </a>
+	  </div>
+	  <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+	    <div class="accordion-inner">
+	      To both procrastinate and gain
+	    </div>
+	  </div>
+	</div>
+	<div class="accordion-group">
+	  <div class="accordion-heading">
+	    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+              Isn't that an oxymoron?
+            </a>
+	  </div>
+	  <div id="collapseTwo" class="accordion-body collapse" style="height: 0px;">
+	    <div class="accordion-inner">
+	      Surprisingly, it's not. Sign up to learn why.
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</template>

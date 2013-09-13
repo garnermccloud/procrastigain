@@ -106,8 +106,10 @@ Meteor.methods({
         if (!user)
             throw new Meteor.Error(401, "You need to login to do this");
 	
-	var post = Posts.findOne({}, {sort: {votes: -1, submitted: 1}});
+	var post = Posts.findOne({ _id: { $nin: user.postsRead } }, {sort: {votes: -1, submitted: 1}});
 
+	if (!post)
+	    throw new Meteor.Error(422, "You've read all of the posts under your interests. Add more interests!");
 	
 	
 	return post._id;

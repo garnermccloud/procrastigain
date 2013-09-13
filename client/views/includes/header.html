@@ -9,24 +9,27 @@
       <a class="brand" href="{{pathFor 'home'}}">Procrastigain</a>
       <div class="nav-collapse collapse"> 
         <ul class="nav">
-      
-      
-	  <li class="{{activeRouteClass 'home' 'newPostsList'}}"><a href="{{pathFor 'home'}}">Recent</a></li>
-	  <li class="{{activeRouteClass 'bestPostsList'}}"><a href="{{pathFor 'bestPostsList'}}">Best</a></li>
-	  {{#if currentUser}}
-	  
-	  <li class="{{activeRouteClass 'postSubmit'}}"><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
+	  {{#if currentUser}}      
+	  <li class="{{activeRouteClass 'workspace'}}"><a href="{{pathFor 'workspace'}}">Personal Trainer</a></li>
 	  <li class=" dropdown {{activeRouteClass 'tasksList'}}">
-	    <a class="dropdown-toggle" href="{{pathFor 'tasksList'}}">My Tasks</a>
-	    <ul class="dropdown-menu">
-	      <li class="{{activeRouteClass 'taskSubmit'}}"><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
-	    </ul>    
-	  </li>
-	  
-	  
-          <li class="{{activeRouteClass 'workspace'}}"><a href="{{pathFor 'workspace'}}">Workspace</a></li>
-	  
+            <a class="dropdown-toggle" href="{{pathFor 'tasksList'}}">My Tasks</a>
+            <ul class="dropdown-menu">
+              <li class="{{activeRouteClass 'taskSubmit'}}"><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
+            </ul>
+          </li>
+
 	  {{/if}}
+
+	  <li class="{{activeRouteClass 'newPostsList'}}"><a href="{{pathFor 'newPostsList'}}">Recent Posts</a></li>
+	  <li class="{{activeRouteClass 'bestPostsList'}}"><a href="{{pathFor 'bestPostsList'}}">Best Posts</a></li>
+
+	  
+
+	  
+	  
+          
+	  
+
 	
 	</ul>
 	<ul class="nav pull-right">

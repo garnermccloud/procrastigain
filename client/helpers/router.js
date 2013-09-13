@@ -36,12 +36,7 @@ Deps.autorun(function() {
 
 
 Router.map(function() {
-    this.route('home', {
-	path: '/',
-	before: function () {
-	    this.redirect('newPostsList');
-	}
-    });
+    
     this.route('newPostsList', {path:'/new'});
     this.route('bestPostsList', {path:'/best'});
     this.route('tasksList', {
@@ -80,7 +75,7 @@ Router.map(function() {
     });
     this.route('taskSubmit', {path: '/submit/task'});
     
-    this.route('workspace', {path: '/workspace'});
+    this.route('workspace', {path: '/trainer'});
     this.route('working', {
 	path: '/working/:_id',
         data: function() { Session.set('currentTaskId', this.params._id);
@@ -100,7 +95,7 @@ Router.map(function() {
 			   return task;
 			 }
     });
-
+    this.route('home', {path: '/'});
     this.route('login', {path: '/login'});
     this.route('settings', {path: '/settings'});
     this.route('accessDenied', {path: '/accessDenied'});
