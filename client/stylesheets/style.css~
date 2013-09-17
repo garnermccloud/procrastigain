@@ -45,7 +45,7 @@ body {
     display: inline-block;
     margin-right: 5px;
 }
-.post .post-content h3 span {
+.post .post-content h3 col-sm- {
     font-weight: normal;
     font-size: 14px;
     display: inline-block;
@@ -71,7 +71,7 @@ body {
 }
 .comments li h4 a { font-size: 12px }
 .comments li p:last-child { margin-bottom: 0 }
-.dropdown-menu span {
+.dropdown-menu col-sm- {
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -124,7 +124,7 @@ body {
     display: inline-block;
     margin-right: 5px;
 }
-.task .task-content h3 span {
+.task .task-content h3 col-sm- {
     font-weight: normal;
     font-size: 14px;
     display: inline-block;

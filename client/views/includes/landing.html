@@ -1,6 +1,6 @@
 <template name="home">
-  <div class="row-fluid jumbotron">
-    <div class="span12">
+  <div class="row jumbotron">
+    <div class="col-sm-12">
       <h1>
 	Because procrastination is actually good.
       </h1>
@@ -9,29 +9,30 @@
       </p>
     </div>
   </div>
-  <div class="row-fluid pitch">
-    <div class="span5 offset1 video">
+  <div class="row pitch">
+    <div class="col-sm-5 col-sm-offset-1 video">
       <img class="img-polaroid" alt="Placeholder" src="http://cdn.morguefile.com/imageData/public/files/h/hotblack/preview/fldr_2012_04_15/file7181334521100.jpg">
     </div>
     <!-- We define a new 'actions' div to contain statistics, order, and share
 	 buttons.-->
-    <div class="span5 actions">
-      <div class="span8 row-fluid offset2">
+    <div class="col-sm-5 actions">
+      <div class="col-sm-8 row col-sm-offset-2">
 <p class="lead" style="color: blue;">Grab an Alpha spot by creating an account above!</p><br/>
-	<p style="line-height: 1.5">
+	
+<p style="line-height: 1.5">
 	  Procrastigain delivers your own personal trainer for getting things done.  By giving it your task list, it uses its productivity engine to recommend tasks to work on, while measuring and tracking your progress. <br/><br/> 
 	  
 	  
 	  
-	  Your procrastigain trainer keeps you in a time controlled environment where you work on tasks in intervals, separated by short break periods for recovery.  When you don't feel like working on a task, it gives you the option to procrastigain (a way of procrastinating productively) by displaying educational and productive web content that is personalized by the user's tastes and interests. <br/> <br/>
+	  Your procrastigain trainer keeps you in a time controlled environment where you work on tasks in intervals, separated by short break periods for recovery.  When you don't feel like working on a task, it gives you the option to procrastigain (a way of procrastinating productively) by displaying educational and productive web content that is personalized by your tastes and interests. <br/> <br/>
 
 The procrastigain content database is derived from our productive links aggregator.  It allows users to submit productive and educational web content, and classify it with tags.  Other users then vote on the post (giving it positive karma), which is used to rank the post and determine its value. </p>
 
 
 	
 	<!--
-	<Div class="statistics row-fluid">
-	  <div class="span4">
+	<Div class="statistics row">
+	  <div class="col-sm-4">
 	    <!-- linediv-l and linediv-r give dividing lines that look different in
 		 horizontal and vertical layouts, illustrating media queries. 
 	    <div class="linediv-l">
@@ -43,7 +44,7 @@ The procrastigain content database is derived from our productive links aggregat
 	      </p>
 	    </div>
 	  </div>
-	  <div class="span4">
+	  <div class="col-sm-4">
 	    <div class="linediv-c">
 	      <h3>
 		$3742
@@ -53,7 +54,7 @@ The procrastigain content database is derived from our productive links aggregat
 	      </p>
 	    </div>
 	  </div>
-	  <div class="span4">
+	  <div class="col-sm-4">
 	    <div class="linediv-r">
 	      <h3>
 		17
@@ -66,7 +67,7 @@ The procrastigain content database is derived from our productive links aggregat
 	</div>
 	
 	  </div>
-      <div class="span10 row-fluid offset1">
+      <div class="col-sm-10 row col-sm-offset-1">
 	<!-- Bootstrap progress bar 
 	<!-- http://twitter.github.io/bootstrap/components.html#progress 
 	<div class="thermometer progress active">
@@ -76,20 +77,20 @@ The procrastigain content database is derived from our productive links aggregat
 	  </div>
 	</div>
       </div>
-      <div class="span6 offset3 order row-fluid">
+      <div class="col-sm-6 col-sm-offset-3 order row">
 	<!-- Standard Bootstrap button. -->
 	<!-- http://twitter.github.io/bootstrap/base-css.html#buttons 
 	<a class="coinbase-button" data-button-style="custom_large" data-button-text="Preorder with Bitcoin" data-code="4d4b84bbad4508b64b61d372ea394dad" href="https://coinbase.com/checkouts/4d4b84bbad4508b64b61d372ea394dad">Preorder With Bitcoin</a>
 	<script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
       </div>
-      <div class="span6 offset3 row-fluid order">
+      <div class="col-sm-6 col-sm-offset-3 row order">
 	<!-- Standard Bootstrap button. -->
 	<!-- http://twitter.github.io/bootstrap/base-css.html#buttons 
 	<button class="btn btn-large btn-inverse">
 	  Reserve Spot in Beta
 	</button>
       </div>
-      <div class="span10 offset1 social row-fluid">
+      <div class="col-sm-10 col-sm-offset-1 social row">
 	<!-- AddThis Button BEGIN 
 	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 	  <a class="addthis_button_preferred_1"></a>
@@ -106,8 +107,8 @@ The procrastigain content database is derived from our productive links aggregat
     </div>
   </div>
   <hr>
-  <div class="row-fluid marketing">
-    <div class="span6">
+  <div class="row marketing">
+    <div class="col-sm-6">
       <h3>
 	It's ridiculously easy
       </h3>
@@ -123,7 +124,7 @@ The procrastigain content database is derived from our productive links aggregat
 	helping you achieve more than you ever thought possible.
       </p>
     </div>
-    <div class="span6">
+    <div class="col-sm-6">
       <h3>
 	Get 3x as much done
       </h3>
@@ -141,31 +142,31 @@ The procrastigain content database is derived from our productive links aggregat
     </div>
   </div>
   <hr>
-  <div class="row-fluid faq">
-    <div class="span10 offset1">
+  <div class="row faq">
+    <div class="col-sm-10 col-sm-offset-1">
       <h3>
 	FAQ
       </h3>
       <div class="accordion" id="accordion2">
 	<div class="accordion-group">
-	  <div class="accordion-heading">
-	    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+	      <div class="accordion-heading">
+		      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
 	      What does Procrastigain stand for?
-	    </a>
-	  </div>
-	  <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
-	    <div class="accordion-inner">
-	      To both procrastinate and gain
-	    </div>
-	  </div>
+		      </a>
+	      </div>
+	      <div id="collapseOne" class="accordion-body collapse in">
+		<div class="accordion-inner">
+		  To both procrastinate and gain
+		</div>
+	      </div>
 	</div>
 	<div class="accordion-group">
 	  <div class="accordion-heading">
-	    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+	    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
               Isn't that an oxymoron?
             </a>
 	  </div>
-	  <div id="collapseTwo" class="accordion-body collapse" style="height: 0px;">
+	  <div id="collapseTwo" class="accordion-body collapse">
 	    <div class="accordion-inner">
 	      Surprisingly, it's not. Sign up to learn why.
 	    </div>

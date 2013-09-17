@@ -1,13 +1,13 @@
 <template name="workspace">
   <div class="jumbotron">
     <div class="mainTask">
-      <div class="row-fluid">
+      <div class="row">
 	<h1>
 	  You really should do this
 	</h1>
       </div>
-      <div class="row-fluid">
-	<a href="{{pathFor TasksList.main.path TasksList.main.task}}" class="btn-hard span8 offset2" style="display: table;">
+      <div class="row">
+	<a href="{{pathFor TasksList.main.path TasksList.main.task}}" class="btn-hard col-sm-8 col-sm-offset-2" style="display: table;">
 	  <div class="vcenter">
 	    <p class="btn-text">{{TasksList.main.title}}</p>
 	  </div>
@@ -15,21 +15,21 @@
       </div>
     </div>
     <div class="altTasks">
-      <div class="row-fluid">
+      <div class="row">
 	<h2>
 	  Don't feel like it? Do one of these
 	</h2>
       </div>
-      <div class="row-fluid">
-	<div class="span6">
-	  <a href="{{pathFor TasksList.alt1.path TasksList.alt1.task}}" class="btn-alt span8 offset2" style="display: table;">
+      <div class="row">
+	<div class="col-sm-6">
+	  <a href="{{pathFor TasksList.alt1.path TasksList.alt1.task}}" class="btn-alt col-sm-8 col-sm-offset-2" style="display: table;">
 	    <div class="vcenter">
 	      <p class="btn-text">{{TasksList.alt1.title}}</p>
 	    </div>	
 	  </a>
 	</div>
-	<div class="span6">
-	  <a href="{{pathFor TasksList.alt2.path TasksList.alt2.task}}" class="btn-alt span8 offset2" style="display: table;">
+	<div class="col-sm-6">
+	  <a href="{{pathFor TasksList.alt2.path TasksList.alt2.task}}" class="btn-alt col-sm-8 col-sm-offset-2" style="display: table;">
 	    <div class="vcenter">
 	      <p class="btn-text">{{TasksList.alt2.title}}</p>
 	    </div>
@@ -37,14 +37,16 @@
 	</div>
       </div>
     </div>
-    <div class="row-fluid">
-      <a href="#">
-	<div class="btn-pg-active span2 offset5" style="display: table;">
-	  <div class="vcenter">
-	    <p>procrastigain</p>
+    <div class="procrastigain">
+      <div class="row">
+	<a href="#">
+	  <div class="btn-pg-active col-sm-4 col-sm-offset-4" style="display: table;">
+	    <div class="vcenter">
+	      <p class="btn-text">Procrastigain</p>
+	    </div>
 	  </div>
-	</div>
-      </a>
+	</a>
+      </div>
     </div>
   </div>
 </template>

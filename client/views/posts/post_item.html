@@ -1,8 +1,8 @@
 <template name="postItem">
-  <div class="post row-fluid">
+  <div class="post row">
     <a href="#" class="upvote btn {{upvotedClass}}">+1</a>
     <div class="post-content">
-      <h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+      <h3><a href="{{url}}">{{title}}</a><col-sm->{{domain}}</col-sm-></h3>
       <p>
 	{{pluralize votes "Vote"}},
         submitted by {{author}},

@@ -6,10 +6,12 @@
 standard-app-packages
 preserve-inputs
 iron-router
-accounts-ui-bootstrap-dropdown
 accounts-password
 spin
 paginated-subscription
-bootstrap
 intercom
 cryptojs
+less
+bootstrap3-less
+accounts-base
+accounts-ui-unstyled

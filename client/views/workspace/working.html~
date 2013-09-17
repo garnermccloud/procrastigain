@@ -1,19 +1,19 @@
 <template name="working">
   <div class="jumbotron">
-    <div class="row-fluid">
+    <div class="row">
       <h1>
         Main Task
       </h1>
     </div>
-    <div class="row-fluid">
-      <div class="clock span6 offset3 text."></div>
+    <div class="row">
+      <div class="clock col-sm-6 col-sm-offset-3 text."></div>
     </div>
-    <div class="row-fluid">
-      <a href="#" class="btn-complete span4 offset4">
+    <div class="row">
+      <a href="#" class="btn-complete col-sm-4 col-sm-offset-4">
         <p class="btn-text">Click if completed early!</p>
       </a>
     </div>
-    <div class="row-fluid">
+    <div class="row">
       <h2>
 	Otherwise, keep on working :)
     </div>

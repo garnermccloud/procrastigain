@@ -1,6 +1,6 @@
 <template name="settings">
   {{#if currentUser}}
-  <div class="row-fluid">
+  <div class="row">
     <h2>Workspace Settings</h2>
   </div>
   <form class="main">

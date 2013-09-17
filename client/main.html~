@@ -6,7 +6,7 @@
   <body>
     <div class="container">
       {{> header}}
-      <div id="main" class="row-fluid">
+      <div id="main" class="row">
 	{{yield}}
       </div>
     </div>
