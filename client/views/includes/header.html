@@ -18,9 +18,18 @@
 	<li class=" dropdown {{activeRouteClass 'tasksList'}}">
           <a class="dropdown-toggle" href="{{pathFor 'tasksList'}}">My Tasks</a>
           <ul class="dropdown-menu">
-            <li class="{{activeRouteClass 'taskSubmit'}}">
+	    <li>
+              <a href="{{pathFor 'tasksList'}}">My Current Tasks</a>
+            </li>
+	    <li>
+              <a href="{{pathFor 'completedTasksList'}}">My Completed Tasks</a>
+            </li>
+	    
+
+	    <li>
 	      <a href="{{pathFor 'taskSubmit'}}">New Task</a>
 	    </li>
+	    
           </ul>
         </li>
 	

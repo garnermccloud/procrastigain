@@ -43,6 +43,11 @@ Router.map(function() {
 	path: '/tasks',
 	waitOn: Subscriptions['tasks']
     });
+    this.route('completedTasksList', {
+        path: '/completedTasks',
+        waitOn: Subscriptions['tasks']
+    });
+
     this.route('postPage', {
 	before: function() {  Session.set('currentPostId', this.params._id);},
 	path: '/posts/:_id',

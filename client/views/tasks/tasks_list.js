@@ -1,6 +1,8 @@
 Template.tasksList.helpers({
   tasks: function() {
-      return Tasks.find({}, {sort: {dateDue: 1}});
-  }
+      tasks =  Tasks.find({duration: {$gt: 0}}, {sort: {dateDue: 1}});
+      if (tasks.count() == 0) return false;
+      else return tasks;
+  },
 
 });
