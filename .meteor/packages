@@ -12,6 +12,6 @@ paginated-subscription
 intercom
 cryptojs
 less
-bootstrap3-less
 accounts-base
 accounts-ui-unstyled
+bootstrap3-less

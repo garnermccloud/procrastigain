@@ -34,16 +34,28 @@
         </li>
 	
 	{{/if}}
+	<li class=" dropdown {{activeRouteClass 'newPostsList'}}">
+          <a class="dropdown-toggle" href="{{pathFor 'newPostsList'}}">Posts</a>
+          <ul class="dropdown-menu">
+
+	    <li>
+	      <a href="{{pathFor 'newPostsList'}}">Recent Posts</a>
+	    </li>
+	    <li>
+	      <a href="{{pathFor 'bestPostsList'}}">Best Posts</a>
+	    </li>
+	    {{#if currentUser}}
+	    <li>
+	      <a href="{{pathFor 'submittedPostsList'}}">My Submitted Posts</a>
+	    </li>
+	    {{/if}}
+	    <li>
+	      <a href="{{pathFor 'postSubmit'}}">Submit New Post</a>
+	    </li>
+      
+          </ul>
+        </li>
 	
-	<li class="{{activeRouteClass 'newPostsList'}}">
-	  <a href="{{pathFor 'newPostsList'}}">Recent Posts</a>
-	</li>
-	<li class="{{activeRouteClass 'bestPostsList'}}">
-	  <a href="{{pathFor 'bestPostsList'}}">Best Posts</a>
-	</li>
-	<li class="{{activeRouteClass 'postSubmit'}}">
-	  <a href="{{pathFor 'postSubmit'}}">Submit Post</a>
-	</li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         {{#if currentUser}}

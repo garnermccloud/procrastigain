@@ -3,7 +3,8 @@
 	"iron-router": {},
 	"spin": {},
 	"paginated-subscription": {},
+	"accounts-ui-bootstrap-3": {},
+	"less": {},
 	"bootstrap3-less": {},
-	"accounts-ui-bootstrap-3": {}
     }
 }

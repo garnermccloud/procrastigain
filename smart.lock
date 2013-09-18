@@ -5,7 +5,6 @@
       "iron-router": {},
       "spin": {},
       "paginated-subscription": {},
-      "bootstrap3-less": {},
       "accounts-ui-bootstrap-3": {}
     },
     "packages": {
@@ -23,11 +22,6 @@
         "git": "https://github.com/tmeasday/meteor-paginated-subscription.git",
         "tag": "v0.1.2",
         "commit": "35e0c6112df2b4cfeb60b559276a93cac5ee2dd6"
-      },
-      "bootstrap3-less": {
-        "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.1",
-        "commit": "82d3e32b6a44bad7bd439b9e02ce33161e58996d"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",

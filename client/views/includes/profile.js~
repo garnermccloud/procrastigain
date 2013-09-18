@@ -1,0 +1,18 @@
+Template.profile.helpers({
+    profileName: function() {
+	return Meteor.user().username + "'s Profile";
+    },
+    karma: function() {
+	var posts = Posts.find({userId: Meteor.userId()});
+	var karma = 0;
+	for each (post in posts) {
+	    karma = karma + post.votes;
+	}
+	return karma;
+    },
+    creationDate: function() {
+	var d = new Date(Meteor.user().createdAt);
+	return d.toDateString();
+    }
+    
+    
