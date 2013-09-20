@@ -1,11 +1,11 @@
 <template name="taskItem">
   <div class="task">
     <div class="task-content">
-      <h3>{{title}} <col-sm->{{dateDueString}}</col-sm-></h3>
+      <h3>{{title}} <span>{{dateDueString}}</span></h3>
       <p>
 	<a href="{{pathFor 'taskEdit' this}}">Edit</a>
       </p>
     </div>
-    <a href="{{pathFor 'working' this}}" class="discuss btn">Work on this</a>
+    <a href="{{pathFor 'working' this}}" class="discuss btn btn-primary">Work on this</a>
   </div>
 </template>

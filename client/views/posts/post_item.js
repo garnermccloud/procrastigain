@@ -17,6 +17,12 @@ Template.postItem.helpers({
 	} else {
 	    return 'disabled';
 	}
+    },
+    
+    tags: function() {
+	
+	return tagsToLinks(this.tags);
+	    
     }
 });
 

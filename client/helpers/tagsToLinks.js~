@@ -1,0 +1,8 @@
+tagsToLinks = function(tags) {
+    var tagLinks = "";
+     for (var i = 0; i < tags.length; i++) {
+	 tagLinks = tagLinks + '<a href="' + Router.path('taggedPostsList', {_id: tags[i]}) + '">' + tags[i] + '</a>';
+	 if (i != (tags.length - 1)) tagLinks = tagLinks + ', ';
+     }
+    return tagLinks;
+};

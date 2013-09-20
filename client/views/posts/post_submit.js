@@ -4,9 +4,15 @@ Template.postSubmit.events({
 	
 	var post = {
 	    url: $(e.target).find('[name=url]').val(),
-	    title: $(e.target).find('[name=title]').val(),
-	    message: $(e.target).find('[name=message]').val()
-	}
+	    title: $(e.target).find('[name=title]').val()
+	};
+
+	//remove extra whitespaces and commas, then make from csv to an array
+        var tags = $(e.target).find('[name=tags]').val().split(/[\s,]+/).join();
+        if (tags == ",") tags = "";
+        else tags = tags.split(',');
+        post.tags = tags;
+	
 	Meteor.call('post', post, function(error, id) {
 	    if (error) {
 		// display the error to the user

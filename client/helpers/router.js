@@ -7,7 +7,7 @@ bestPostsHandle = Meteor.subscribeWithPagination('bestPosts', 10);
 
 submittedPostsHandle = Meteor.subscribeWithPagination('submittedPosts', 10);
 
-
+taggedPostsHandle = Meteor.subscribeWithPagination('taggedPosts', 10);
 
 
 
@@ -34,6 +34,10 @@ Router.map(function() {
     this.route('newPostsList', {path:'/new'});
     this.route('bestPostsList', {path:'/best'});
     this.route('submittedPostsList', {path: '/submitted'});
+    this.route('taggedPostsList', {
+	path: '/tags/:_id',
+	data: function() { return this.params;}
+    });
     this.route('tasksList', {
 	path: '/tasks',
 	waitOn: Subscriptions['tasks']

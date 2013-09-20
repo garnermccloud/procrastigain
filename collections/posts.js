@@ -1,5 +1,6 @@
 Posts = new Meteor.Collection('posts');
 
+
 Posts.allow({
   update: ownsDocument,
   remove: ownsDocument
@@ -8,7 +9,7 @@ Posts.allow({
 Posts.deny({
   update: function(userId, post, fieldNames) {
     // may only edit the following two fields:
-    return (_.without(fieldNames, 'url', 'title').length > 0);
+    return (_.without(fieldNames, 'url', 'title', 'tags').length > 0);
   }
 });
 
@@ -24,6 +25,11 @@ Meteor.methods({
     // ensure the post has a title
     if (!postAttributes.title)
       throw new Meteor.Error(422, 'Please fill in a headline');
+      
+      //ensure the post has at least one tag
+      if (!postAttributes.tags) 
+	   throw new Meteor.Error(422, 'Please add tags to this post');
+      
 
     // check that there are no previous posts with the same link
     if (postAttributes.url && postWithSameLink) {
@@ -33,12 +39,12 @@ Meteor.methods({
     }
 
     // pick out the whitelisted keys
-    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), {
+    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'tags'), {
 	userId: user._id, 
 	author: user.username, 
 	submitted: new Date().getTime(),
 	commentsCount: 0,
-	upvoters: [], 
+	upvoters: [],
 	votes: 0
     });
 
@@ -60,6 +66,12 @@ Meteor.methods({
 	if (!postAttributes.title)
 	    throw new Meteor.Error(422, 'Please fill in a headline');
 	
+
+	//ensure the post has at least one tag
+	if (!postAttributes.tags)
+            throw new Meteor.Error(422, 'Please add tags to this post');
+
+
 	// check that there are no previous posts with the same link
 	if (postAttributes.url && postWithSameLink && (postId != postWithSameLink._id)) {
 	    throw new Meteor.Error(302,

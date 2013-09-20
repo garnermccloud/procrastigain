@@ -26,13 +26,35 @@ Template.submittedPostsList.helpers({
 });
 
 
+Template.taggedPostsList.helpers({
+    options: function() {
+	return {
+	    sort: {votes: -1, submitted: -1},
+            handle: bestPostsHandle,
+	    tag: this._id
+        }
+    }
+});
+
+
+
 Template.postsList.helpers({
     
     postsWithRank: function() {
 	var i = 0, options = {sort: this.sort, limit: this.handle.limit()};
-	if (!this.userId)
+	
+	//pass the user submitted posts if there is a userId
+	if (!!this.userId)
+	    var posts = Posts.find({userId: this.userId}, options);
+	
+	//pass the tagged posts if there is a tag
+	else if (!!this.tag)
+	    var posts = Posts.find({tags: this.tag}, options);
+	
+	//pass all posts otherwise
+	else
 	    var posts = Posts.find({}, options);
-	else var posts = Posts.find({userId: this.userId}, options);
+
 	return posts.map(function(post) {
 	    post._rank = i;
 	    i += 1;

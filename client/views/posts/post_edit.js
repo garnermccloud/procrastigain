@@ -3,8 +3,11 @@
 Template.postEdit.helpers({
   post: function() {
     return Posts.findOne(Session.get('currentPostId'));
-  }
-});
+  },
+    tagString: function() {
+	return this.tags.toString();
+    }
+ });
 
 Template.postEdit.events({
     'submit form': function(e) {
@@ -14,9 +17,17 @@ Template.postEdit.events({
 	
 	var postProperties = {
 	    url: $(e.target).find('[name=url]').val(),
-	    title: $(e.target).find('[name=title]').val(),
-	    message: $(e.target).find('[name=message]').val()
-	}
+	    title: $(e.target).find('[name=title]').val()
+	};
+
+	//remove extra whitespaces and commas, then make from csv to an array
+	var tags = $(e.target).find('[name=tags]').val().split(/[\s,]+/).join();
+	if (tags == ",") tags = "";
+	else tags = tags.split(',');
+	postProperties.tags = tags;
+	
+
+	
 	Meteor.call('postEdit', postProperties, currentPostId, function(error, id) {
 	    if (error) {
                 // display the error to the user
