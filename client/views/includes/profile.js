@@ -26,7 +26,7 @@ Template.profile.helpers({
 	if (length > 0) {
 	    interests = interests.slice(0, length - 2);
 	}
-	return interests;
+	return tagsToLinks(Meteor.user().tags);
     }
 });
 			 

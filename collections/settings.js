@@ -16,6 +16,11 @@ Meteor.methods({
             throw new Meteor.Error(422, 'Please fill in an amount for work session length');
 
 
+	 //ensure the post has at least one tag
+      if (!userAttributes.tags)
+           throw new Meteor.Error(422, 'Please add tags to this post');
+
+
 	 // ensure the settings has a break time
 	 if (!userAttributes.breakTime)
             throw new Meteor.Error(422, 'Please fill in an amount for break time length');

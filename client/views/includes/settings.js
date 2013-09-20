@@ -7,6 +7,9 @@ Template.settings.helpers({
     },
     procrastigainTime: function() {
 	return Meteor.user().procrastigainTime / 60;
+    },
+    tagString: function() {
+	return Meteor.user().tags.toString();
     }
 });
 
@@ -24,13 +27,20 @@ Template.settings.events({
 	    breakTime: breakTime,
 	    procrastigainTime: procrastigainTime
 	};
+
+	//remove extra whitespaces and commas, then make from csv to an array
+        var tags = $(e.target).find('[name=tags]').val().split(/[\s,]+/).join();
+        if (tags == ",") tags = "";
+        else tags = tags.split(',');
+        userProperties.tags = tags;
+
 	
 	Meteor.call('settingsUpdate', userProperties, function(error) {
 	    if (error) {
 		throwError(error.reason);
 	    }
 	    else {
-		Router.go('settings');
+		Router.go('profile');
 	    }
 	});
     }
