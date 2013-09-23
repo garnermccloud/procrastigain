@@ -1,13 +1,17 @@
 
 
 Template.breakTime.rendered = function() {
-    clock = $('.clock').FlipClock(5*60, {
-    countdown: true 
-    });
+   var time = Meteor.user().breakTime;
+   if (typeof clock != "undefined") clock.clear();
+
+    clock = timer;
+    clock.start(time,document.getElementById('clockWorking'));
+
    
-    function timeUp() { return clock.getTime().toString() == "-1";};
+    function timeUp() { return clock.getTimeLeft().toString() == "0";};
     function goToWorkspace() { 
-	clock.timer._destroyTimer();
+
+	clock.clear();
 	Router.go('workspace'); 
 };
     when(timeUp, goToWorkspace, 2000);

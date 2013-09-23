@@ -3,13 +3,18 @@
 Template.working.rendered = function() {
     
     var time = Meteor.user().taskTime;
-    clock = $('.clock').FlipClock(time, {
-    countdown: true 
-    });
+    if (typeof clock != "undefined") clock.clear();
+
+    clock = timer;
+    clock.start(time,document.getElementById('clockWorking'));
     
-    function timeUp() { return clock.getTime().toString() == "-1";};
+    function timeUp() { return clock.getTimeLeft().toString() == "0";};
     function updateTask() {
-	clock.timer._destroyTimer();
+	
+	//so that clock can be re initialized for next use
+
+	clock.clear();
+	
 	var currentTaskId = Session.get('currentTaskId'); 
 	Meteor.call('taskWorkedOn', time, currentTaskId, function(error, completed) {
             if (error)
@@ -38,6 +43,9 @@ Template.working.events({
 		if (error)
                     throwError(error.reason);
 		else {
+		    //so that clock can be re initialized for next use
+		    clock.clear();
+
 		    Router.go('breakTime', completed);
 		}
 	    });

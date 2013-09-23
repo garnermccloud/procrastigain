@@ -22,3 +22,4 @@ Deps.autorun(function(){
 });
 
 
+if (typeof clock != "undefined") clock.clear(); 

@@ -21,7 +21,8 @@
       {{> postItem}}
     {{else}}
     <p>There are no posts that match your query! Create a 
-      <a href="{{pathFor 'postSubmit'}}">new one</a> 
+      <a href="{{pathFor 'postSubmit
+	       '}}">new one</a> 
       or see all <a href="{{pathFor 'newPostsList'}}">new posts</a>.</p>
     {{/each}}
     {{#if postsReady}}

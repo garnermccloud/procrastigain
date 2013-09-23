@@ -1,31 +1,20 @@
 <template name="procrastigaining">
-  <div class="jumbotron">
+  
     <div class="row">
-
-      <h2>
-	{{post.title}}
-      </h2>
+	<a href="#" class="upvote btn {{upvotedClass}}">+1</a>{{post.title}}
+	
+        Not for you? <a href="{{pathFor 'settings'}}">Edit your interests.</a>
+	{{#constant}}<span class="clock" id="clockProcrastigaining"></span>{{/constant}}
+        <a href="{{post.url}}">Link to origin site</a>
+	<a href="#" class="btn btn-success ">
+          <p class="btn-text" style="font-size:12pt">Click if completed early!</p>
+	</a>
+	
     </div>
-    <div class="row">
-       {{#constant}}<div class="clock col-sm-6 col-sm-offset-3 text."></div>{{/constant}}
+    {{#constant}}
+    <div id="iframeStart">
     </div>
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1 post-frame">
-	<p style="text-align: center;"><a href="#" class="upvote btn {{upvotedClass}}">+1</a></p>
-	<p style="text-align: right; font-size: 10pt;">Not for you? <a href="{{pathFor 'settings'}}">Edit your interests.</a></p>
-	{{#constant}}<iframe src="{{post.url}}" style="width:100%; height:500px" ></iframe>{{/constant}}
-	<a href="{{post.url}}">Link to origin site</a>
-      </div>
-    </div>
-    <div class="row">
-      <a href="#" class="btn-complete col-sm-4 col-sm-offset-4">
-        <p class="btn-text">Click if completed early!</p>
-      </a>
-    </div>
-    <div class="row">
-      <p class="lead">
-	Otherwise, keep on procrastigaining :)
-      </p>
-    </div>
-  </div>
+    {{/constant}}
+    
+  
 </template>

@@ -10,6 +10,10 @@ Meteor.publish('submittedPosts', function(limit) {
   return Posts.find({userId: Meteor.UserId()}, {sort: {votes: -1, submitted: -1}, limit: limit});
 });
 
+Meteor.publish('taggedPosts', function(tag, limit) {
+  return Posts.find({tags: tag}, {sort: {votes: -1, submitted: -1}, limit: limit});
+});
+
 
 Meteor.publish('singlePost', function(id) {
   return Posts.find(id);
