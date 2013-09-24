@@ -92,7 +92,7 @@ Router.map(function() {
     this.route('procrastigaining', {
 	before: function() {  Session.set('currentPostId', this.params._id);},
 	path: '/procrastigaining/:_id',
-	data: function() { return Posts.findOne(this.params._id);},
+	data: function() { return Posts.findOne(this.params._id,{reactive: false}); },
 	waitOn: Subscriptions['singlePost']
     });
     

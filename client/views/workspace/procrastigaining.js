@@ -55,6 +55,7 @@ Template.procrastigaining.rendered = function() {
     //iframe.style.background-color = "transparent";
     iframe.style.border = "0px none transparent";
     iframe.style.padding = "0px";
+    iframe.style.paddingBottom = "50px";
     iframe.style.overflow = "visible";
 
     document.getElementById('iframeStart').appendChild(iframe);
@@ -65,11 +66,11 @@ Template.procrastigaining.rendered = function() {
 
 
 Template.procrastigaining.events({
-    'click .btn-complete': function(e) {
+    'click .btn-success': function(e) {
         e.preventDefault();
         if (confirm("Wow, you finished the task early?")) {
 	    var currentPostId = Session.get('currentPostId');
-	    var time = Meteor.user().procrastigainTime - parseInt(clock.getTime().toString(),10);
+	    var time = Meteor.user().procrastigainTime - parseInt(clock.getTimeLeft().toString(),10);
             Meteor.call('updateProcrastigained', time, currentPostId, function(error) {
 		if (error)
                     throwError(error.reason);

@@ -1,16 +1,43 @@
 <template name="procrastigaining">
   
-    <div class="row">
-	<a href="#" class="upvote btn {{upvotedClass}}">+1</a>{{post.title}}
-	
-        Not for you? <a href="{{pathFor 'settings'}}">Edit your interests.</a>
-	{{#constant}}<span class="clock" id="clockProcrastigaining"></span>{{/constant}}
-        <a href="{{post.url}}">Link to origin site</a>
-	<a href="#" class="btn btn-success ">
-          <p class="btn-text" style="font-size:12pt">Click if completed early!</p>
-	</a>
-	
+  <div class="navbar navbar-inverse navbar-fixed-bottom navbar-procrastigain">
+    <div class="navbar-header">
+      <span class="navbar-brand">Time Left: <span class="clock" id="clockProcrastigaining"></span></span>
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
+    
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav" style="text-align: center">
+        
+        <li>
+          <p class="navbar-text">{{post.title}}</p>
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+	<li>
+	  <button type="button" href="#" class="upvote btn navbar-btn {{upvotedClass}}">+1</button>
+	</li>
+
+        <li>
+          <a href="{{post.url}}">Link to origin site</a>
+        </li>
+	<li>
+	  <button type="button" class="btn btn-success navbar-btn">
+            Click if completed early!
+	  </button>
+	</li>
+      </ul>
+      
+      
+    </div>
+  </div>
+
+     
     {{#constant}}
     <div id="iframeStart">
     </div>
