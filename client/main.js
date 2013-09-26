@@ -38,9 +38,8 @@ if (typeof amplify.store("introComplete") == "undefined") amplify.store("introCo
             },
 	    {
 		element: document.getElementById('tasksList'),
-		intro: "Procrastigain keeps track of everything need to do."
-		position:'right'
-		
+		intro: "Procrastigain keeps track of everything need to do.",
+		position: 'right'
             },
             {
 		element: document.getElementById('personalTrainer'),

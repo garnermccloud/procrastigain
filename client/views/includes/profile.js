@@ -10,6 +10,10 @@ Template.profile.helpers({
 	});
 	return karma;
     },
+    procrastigained: function() {
+	return Meteor.user().procrastigained/60 + " minutes";
+    },
+
     creationDate: function() {
 	var d = new Date(Meteor.user().createdAt);
 	return d.toDateString();
