@@ -1,16 +1,25 @@
 <template name="newPostsList">
+
+  <h1 class="page-title">Recent Posts</h1>
+
   {{> postsList options}}
 </template>
 
 <template name="bestPostsList">
+  <h1 class="page-title">Best Posts</h1>
+
   {{> postsList options}}
 </template>
 
 <template name="submittedPostsList">
+  <h1 class="page-title">My Submitted Posts</h1>
+
   {{> postsList options}}
 </template>
 
 <template name="taggedPostsList">
+  <h1 class="page-title">Posts Tagged with {{tag}}</h1>
+
   {{> postsList options}}
 </template>
 

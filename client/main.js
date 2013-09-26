@@ -23,3 +23,46 @@ Deps.autorun(function(){
 
 
 if (typeof clock != "undefined") clock.clear(); 
+
+
+
+Template.main.rendered = function() {
+if (typeof amplify.store("introComplete") == "undefined") amplify.store("introComplete", false);
+    intro = introJs();
+    intro.setOptions({
+	steps: [
+             {
+                element: document.getElementById('brand'),
+                intro: "Welcome to Procrastigain! </br></br>Let's get started.",
+                position: 'right'
+            },
+	    {
+		element: document.getElementById('tasksList'),
+		intro: "Procrastigain keeps track of everything need to do."
+		position:'right'
+		
+            },
+            {
+		element: document.getElementById('personalTrainer'),
+		intro: "Ok, wasn't that fun?",
+		position: 'right'
+            },
+            {
+		element: document.getElementById('posts'),
+		intro: 'More features, more fun.',
+		position: 'left'
+            }
+	]
+    });
+    
+    //Make sure that the user is logged in before the tour starts
+    if (!amplify.store("introComplete") && !!Meteor.user()) intro.start();
+
+    intro.onexit(function() {
+	amplify.store("introComplete",true);
+    });
+
+    intro.oncomplete(function() {
+        amplify.store("introComplete",true);
+    });
+};

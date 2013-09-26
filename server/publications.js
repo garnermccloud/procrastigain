@@ -7,7 +7,7 @@ Meteor.publish('bestPosts', function(limit) {
 });
 
 Meteor.publish('submittedPosts', function(limit) {
-  return Posts.find({userId: Meteor.UserId()}, {sort: {votes: -1, submitted: -1}, limit: limit});
+  return Posts.find({userId: this.userId}, {sort: {votes: -1, submitted: -1}, limit: limit});
 });
 
 Meteor.publish('taggedPosts', function(tag, limit) {

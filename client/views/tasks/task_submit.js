@@ -20,7 +20,7 @@ Template.taskSubmit.events({
 	    }
 	    else {
 	    task._id = id;
-	    Router.go('taskPage', task);
+	    Router.go('tasksList');
 	    }
 	});
     }

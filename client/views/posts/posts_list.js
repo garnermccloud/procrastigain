@@ -33,6 +33,9 @@ Template.taggedPostsList.helpers({
             handle: bestPostsHandle,
 	    tag: this._id
         }
+    },
+    tag: function() {
+	return this._id;
     }
 });
 

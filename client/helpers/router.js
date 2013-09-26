@@ -102,7 +102,9 @@ Router.map(function() {
 			   return task;
 			 }
     });
-    this.route('home', {path: '/'});
+
+
+    this.route('landing', {path: '/'});
     this.route('login', {path: '/login'});
     this.route('settings', {path: '/settings'});
     this.route('profile', {path: '/profile'});
@@ -122,7 +124,7 @@ Router.configure({
 	var routeName = this.context.route.name;
 	clearErrors();
 	// no need to check at these URLs
-	if (_.include(['login', 'passwordReset', 'newPostsList', 'bestPostsList', 'home', 'postPage', 'accessDenied' /*, etc */], routeName))
+	if (_.include(['login', 'passwordReset', 'newPostsList', 'bestPostsList', 'taggedPostsList', 'landing', 'postPage', 'accessDenied' /*, etc */], routeName))
 	    return;
 	
 	var user = Meteor.user();

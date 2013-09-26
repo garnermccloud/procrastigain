@@ -1,0 +1,14 @@
+tour = new Tour();
+
+tour.addSteps([
+    {
+        element: "#tasks", // string (jQuery selector) - html element next to which the step popover should be shown
+        title: "Title of my popover", // string - title of the popover
+        content: "Content of my popover" // string - content of the popover
+    },
+    {
+        element: "#personalTrainer",
+        title: "Title of my popover",
+        content: "Content of my popover"
+    }
+]);

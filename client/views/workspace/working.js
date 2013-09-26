@@ -30,7 +30,7 @@ Template.working.rendered = function() {
 };
 
 Template.working.events({
-    'click .btn-complete': function(e) {
+    'click .btn-success': function(e) {
 	e.preventDefault();
 	if (confirm("Wow, you finished the task early?")) {
 	    

@@ -11,3 +11,11 @@ Template.header.helpers({
     return active && 'active';
   }
 });
+
+Template.header.events({
+ 'click #tour': function(e) {
+     e.preventDefault();
+     amplify.store("introComplete", false);
+     intro.start();
+ }
+});
