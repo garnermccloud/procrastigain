@@ -1,0 +1,49 @@
+<template name="taskSubmitExample">
+  <h1 class="page-title">Submit New Task</h1>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <form class="main" id="taskSubmit">
+	
+	<div class="control-group">
+          <label class="control-label" for="title">Title</label>
+          <div class="controls">
+            <input name="title" type="text" value="Econ 100 Problem Set #1" placeholder="Name your task" maxlength="100"/>
+          </div>
+	</div>
+	
+	
+	
+	<div class="control-group">
+	  <label class="control-label" for="duration">Time needed to complete</label>
+	  <div class="controls">
+            <input class="input-small" name="duration-hours" type="number" value="1" min="0" max="100"/>Hour(s)  
+	    <input class="input-small" name="duration-minutes" type="number" value="45" min="0" max="60"/>Minute(s)
+	  </div>
+	</div>
+	
+	
+	<div class="control-group">
+          <label class="control-label" for="appeal">Appeal</label>
+          <div class="controls">
+            Hate <input name="appeal" type="range" min="1" max="9" value="2"/> Love
+          </div>
+	</div>
+	
+	
+	<div class="control-group">
+          <label class="control-label" for="dateDue">Due Date</label>
+          <div class="controls">
+            <input name="dateDue" type="date" value="2013-10-03"/>
+          </div>
+	</div> 
+	
+	<div class="control-group">
+          <div class="controls">
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+          </div>
+	</div>
+      </form>
+    </div>
+  </div>
+</template>

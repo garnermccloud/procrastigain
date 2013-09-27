@@ -12,10 +12,3 @@ Template.header.helpers({
   }
 });
 
-Template.header.events({
- 'click #tour': function(e) {
-     e.preventDefault();
-     amplify.store("introComplete", false);
-     intro.start();
- }
-});

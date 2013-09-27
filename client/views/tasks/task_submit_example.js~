@@ -1,0 +1,27 @@
+Template.taskSubmitExample.rendered = function() {
+    intro = introJs();
+    intro.setOptions({
+        steps:  [
+            {
+                element: document.getElementById('taskSubmit'),
+                intro: "Add your tasks and enter a few details about each so that we can accurately inform your personal trainer.",
+                position: 'top'
+            }
+            
+        ],
+        doneLabel: "Next Page",
+	showStepNumbers: false
+
+    });
+
+    intro.start();
+
+    intro.oncomplete(function() {
+        Router.go('workspaceExample');
+    });
+
+    intro.onexit(function() {
+        amplify.store("introComplete",true);
+        Router.go('workspace');
+    });
+}

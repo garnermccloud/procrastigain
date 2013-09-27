@@ -103,6 +103,17 @@ Router.map(function() {
 			 }
     });
 
+    //tour pages
+    this.route('tour', {path: '/tour'});
+    this.route('taskSubmitExample', {path: '/submit/task/example'});
+    this.route('workspaceExample1', {path: '/trainer/example1'});
+    this.route('workingExample', {path: '/working/example'});
+    this.route('breakTimeExample', {path: '/breakTime/example'});
+    this.route('workspaceExample2', {path: '/trainer/example2'});
+    this.route('procrastigainingExample', {path: '/procrastigaining/example'});
+    this.route('tasksListExample', {path: '/tasks/example'});
+    this.route('newPostsListExample', {path: '/posts/example'});
+
 
     this.route('landing', {path: '/'});
     this.route('login', {path: '/login'});

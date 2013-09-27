@@ -6,6 +6,7 @@ Accounts.onCreateUser(function(options, user) {
     user.procrastigainTime = 15*60;
     user.procrastigainLeft = 5;
     user.procrastigained = 0;
+    user.justCreated = true;
     
     if (options.profile)
 	user.profile = options.profile;

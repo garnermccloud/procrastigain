@@ -34,5 +34,5 @@ Meteor.publish('notifications', function() {
 Meteor.publish('currentUser', function() {
   return Meteor.users.find(this.userId, {fields: {createdAt: 1, taskTime: 1, breakTime: 1,
 						  procrastigainTime: 1, procrastigainLeft: 1, 
-						  procrastigained: 1, postsRead: 1, tags: 1}});
+						  procrastigained: 1, postsRead: 1, tags: 1, justCreated: 1}});
 });

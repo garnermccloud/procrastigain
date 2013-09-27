@@ -1,0 +1,6 @@
+<template name="tour">
+ <h1 id="tourTitle" class="page-title">Welcome to Procrastigain!</h1>
+
+
+
+</template>

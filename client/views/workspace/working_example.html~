@@ -1,0 +1,22 @@
+<template name="working">
+  <div class="jumbotron">
+    <div class="row">
+      <h1>
+        {{this.title}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="clock col-sm-6 col-sm-offset-3" id="clockWorking"></div>
+    </div>
+    <div class="row">
+      <a href="#" class=" btn btn-success btn-lg">
+        Click if completed early!
+      </a>
+    </div>
+    <div class="row">
+      <p class="lead">
+	Otherwise, keep on working :)
+      </p>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,44 @@
+<template name="newPostsList">
+
+  <h1 class="page-title">Recent Posts</h1>
+
+  {{> postsList options}}
+</template>
+
+<template name="bestPostsList">
+  <h1 class="page-title">Best Posts</h1>
+
+  {{> postsList options}}
+</template>
+
+<template name="submittedPostsList">
+  <h1 class="page-title">My Submitted Posts</h1>
+
+  {{> postsList options}}
+</template>
+
+<template name="taggedPostsList">
+  <h1 class="page-title">Posts Tagged with {{tag}}</h1>
+
+  {{> postsList options}}
+</template>
+
+
+<template name="postsList">
+  <div class="posts">
+    {{#each postsWithRank}}
+      {{> postItem}}
+    {{else}}
+    <p>There are no posts that match your query! Create a 
+      <a href="{{pathFor 'postSubmit'}}">new one</a> 
+      or see all <a href="{{pathFor 'newPostsList'}}">new posts</a>.</p>
+    {{/each}}
+    {{#if postsReady}}
+    {{#unless allPostsLoaded}}
+    <a class="load-more" href="#">Load more</a>
+    {{/unless}}
+    {{else}}
+    <div>{{> spinner}}</div>
+    {{/if}}
+  </div>
+</template>

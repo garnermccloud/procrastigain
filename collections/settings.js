@@ -41,4 +41,8 @@ Meteor.methods({
             }
         });
     },
+
+    updateJustCreated: function() {
+	 Meteor.users.update(Meteor.userId(), {$set: {justCreated: false} });
+    }
 });
