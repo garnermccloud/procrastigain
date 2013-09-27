@@ -11,7 +11,11 @@ Template.profile.helpers({
 	return karma;
     },
     procrastigained: function() {
-	return Meteor.user().procrastigained/60 + " minutes";
+	time = Meteor.user().procrastigained;
+	hours =  parseInt(time / 3600);
+	minutes = parseInt(time / 60) - hours*60;
+        seconds = parseInt(time % 60);
+	return hours + " hours, " + minutes + " minutes, and " + seconds + " seconds";
     },
 
     creationDate: function() {
