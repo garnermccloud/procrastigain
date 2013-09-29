@@ -1,7 +1,8 @@
 Template.postItem.helpers({
 
     ownPost: function() {
-	return this.userId == Meteor.userId();
+	if (!Meteor.user()) return false;
+	else return (this.userId == Meteor.userId() || Meteor.user().username == "admin");
     },
     
     domain: function() {
