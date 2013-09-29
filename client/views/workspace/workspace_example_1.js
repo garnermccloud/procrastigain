@@ -4,7 +4,7 @@ Template.workspaceExample1.rendered = function() {
         steps:  [
             {
                 element: document.getElementById('trainerMessage'),
-                intro: "After entering in a few tasks, your personal trainer will give you suggestions on what to get started on.",
+                intro: "Your personal trainer will give you suggestions on what to work on.",
                 position: 'bottom'
             },
 	    {
@@ -16,6 +16,8 @@ Template.workspaceExample1.rendered = function() {
 
         ],
         doneLabel: "Next Page",
+	hideNavigation: true,
+        hideSkipDone: true,
         showStepNumbers: false
 
     });

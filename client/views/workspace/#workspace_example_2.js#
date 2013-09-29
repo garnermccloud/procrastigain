@@ -9,15 +9,15 @@ Template.workspaceExample2.rendered = function() {
 	    },
             {
 		element: document.getElementById('procrastigain'),
-                intro: "If you are feeling burned out from all the work, then... <br/><br/>[drum roll please]<br/><br/> <strong>It's time to procrastigain!!!</strong>",
+                intro: "If you are feeling burned out from all the work, then it's time to procrastigain!",
                 position: 'top'
             }
 
 
         ],
         doneLabel: "Next Page",
-	hideNavigation: true,
-        hideSkipDone: true,
+   hideNavigation: true,
+
         showStepNumbers: false
 
     });

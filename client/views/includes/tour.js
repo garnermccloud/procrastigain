@@ -5,7 +5,7 @@ Template.tour.rendered = function() {
         steps:  [
             {
                 element: document.getElementById('tourTitle'),
-                intro: "We are here to help you get things done. </br></br>So let's get started.",
+                intro: "We are here to help you get things done. So let's get started!  </br></br>(Press the right arrow key to move through the tour)",
                 position: 'bottom'
             },
             {
@@ -15,6 +15,8 @@ Template.tour.rendered = function() {
             }
         ],
 	doneLabel: "Next Page",
+	hideNavigation: true,
+	hideSkipDone: true,
         showStepNumbers: false
 	
     });
