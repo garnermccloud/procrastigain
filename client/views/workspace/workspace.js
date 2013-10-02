@@ -6,17 +6,17 @@ Template.workspace.helpers({
 	  task: ""
       }
 	  
-      var main = Tasks.findOne({}, {sort: {dateDue: 1, duration: -1, appeal: 1}});
+      var main = Tasks.findOne({duration: {$gt: 0}}, {sort: {dateDue: 1, duration: -1, appeal: 1}});
       if (!!main) {
 	  main.path = "working";
 	  main.task = {_id: main._id};
 	  
-	  var alt1 = Tasks.findOne({_id: {$ne: main._id}}, {sort: {dateDue: 1, appeal: -1}});
+	  var alt1 = Tasks.findOne({$and: [ {_id: {$ne: main._id}},{duration: {$ne: 0}} ] }, {sort: {dateDue: 1, appeal: -1}});
 	  if (!!alt1) {
 	      alt1.path = "working";
 	      alt1.task = {_id: alt1._id};
 	      
-	      var alt2 = Tasks.findOne({$and: [ {_id: {$ne: main._id}}, {_id: {$ne: alt1._id}} ] },
+	      var alt2 = Tasks.findOne({$and: [ {_id: {$ne: main._id}}, {_id: {$ne: alt1._id}}, {duration: {$ne: 0}} ] },
 				       {sort: {dateDue: 1, appeal: -1}});
 	      if (!!alt2) {
 		  alt2.path = "working";
