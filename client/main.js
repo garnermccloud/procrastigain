@@ -37,3 +37,8 @@ Template.main.helpers({
 	return "";
     },
 });
+
+
+Template.main.created = function() {
+       if (typeof clock != "undefined") clock.clear();
+};
