@@ -92,15 +92,13 @@ Meteor.methods({
 
          var currentTask = Tasks.findOne(id);
 	 var duration = currentTask.duration;
-	 var completed = false;
+	 var completed = true;
 	 //calculate new duration of task
-
-	 // if task has 0 duration but user didn't click finished, add 25 min to task
 	 if (duration < time) {
-	     duration = 25*60;
-	     
+	     duration = 0;
 	 } else {
 	     duration = duration - time;
+	     completed = false;
 	 }
 
 

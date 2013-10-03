@@ -37,7 +37,7 @@ Template.taskEdit.events({
                 throwError(error.reason);
             else {
 		taskProperties._id = id;
-		Router.go('tasksList');
+		Router.go('taskPage', taskProperties);
 	    }
         });
 	

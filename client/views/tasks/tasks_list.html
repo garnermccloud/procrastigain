@@ -3,21 +3,9 @@
   <h1 class="page-title">My Current Tasks</h1>
 
   <div class="tasks">
-    <div class="row"  style="padding-bottom:20px">
-      <div class="row" align="center">
-	 <button type="button" class="btn btn-primary " onclick="Router.go('workspace');" >Go to your Personal Trainer!</button>
-      </div>
-      <div class="col-sm-12" align="right">
-        <button type="button" class="btn btn-success btn-xs" onclick="Router.go('taskSubmit');" >Add New Task</button>
-      </div>
-
-
-    </div>
-    
     {{#each tasks}}
       {{> taskItem}}
     {{/each}}
-    
     {{#unless tasks}}
     <div class="row" style="text-align: center;">
       <h2> You don't have any active tasks.  <a href="{{pathFor 'taskSubmit'}}">Create one now!</a></h2>
