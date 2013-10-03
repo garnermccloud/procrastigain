@@ -39,6 +39,6 @@ Template.main.helpers({
 });
 
 
-Template.main.created = function() {
-       if (typeof clock != "undefined") clock.clear();
-};
+//Template.main.created = function() {
+//       if (typeof clock != "undefined") clock.clear();
+//};
