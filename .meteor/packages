@@ -13,5 +13,6 @@ intercom
 cryptojs
 less
 accounts-base
-accounts-ui-unstyled
 bootstrap3-less
+
+accounts-ui-unstyled
