@@ -1,3 +1,5 @@
+
+
 .grid-block, .main, .post, .task, .comments li, .comment-form {
     background: #fff;
     border-radius: 3px;
@@ -6,20 +8,48 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 body {
-    background: white;
-    color: #666666;
-    word-break: break-word;
+  background-color: #ffffff;
+  color: #666666;
+  word-break: break-word;
+  margin: 0px;
+  padding-bottom: 45px !important;
+  
+
+
+.page-title {
+  font-size:40pt;
+  text-align: center;
+  padding-bottom: 15px;
 }
+
 
 p {
     word-break: break-word;
     overflow: visible;
 }
 
-.navbar { margin-bottom: 10px }
+img {
+  max-width: 100%;
+}
+
+
+
+.navbar-static-top {
+  margin-top: 20px !important;
+  margin-bottom: 15px !important;
+  padding: 0px !important;
+  width: auto !important;
+}
+
+
 .navbar .navbar-inner {
     border-radius: 0px 0px 3px 3px;
 }
+
+.navbar-procrastigain {
+margin-bottom: 0px !important;
+}
+
 #spinner { height: 300px }
 .post {
     *zoom: 1;
@@ -28,7 +58,8 @@ p {
     -moz-transition: all 300ms 0ms ease-in;
     -o-transition: all 300ms 0ms ease-in;
     transition: all 300ms 0ms ease-in;
-    position: relative;
+    
+  background-color: #000000;
     opacity: 1;
 }
 .post:before, .post:after {
@@ -47,10 +78,12 @@ p {
     margin: 0;
     line-height: 1.4;
     font-size: 18px;
+  
 }
 .post .post-content h3 a {
     display: inline-block;
     margin-right: 5px;
+  color: #ffffff !important;
 }
 .post .post-content h3 span {
     font-weight: normal;
@@ -107,7 +140,8 @@ p {
     -moz-transition: all 300ms 0ms ease-in;
     -o-transition: all 300ms 0ms ease-in;
     transition: all 300ms 0ms ease-in;
-    position: relative;
+  background-color: #222222;
+
     opacity: 1;
 }
 .task:before, .task:after {
@@ -126,10 +160,12 @@ p {
     margin: 0;
     line-height: 1.4;
     font-size: 18px;
+
 }
 .task .task-content h3 a {
     display: inline-block;
     margin-right: 5px;
+  color: #ffffff !important;
 }
 .task .task-content h3 span {
     font-weight: normal;
@@ -168,7 +204,7 @@ label {
     border-radius: 10px;
     min-height: 150px !important;
     height: auto;
-    display: table; !important;
+    display: table !important;
 }
 
 .btn-alt {
@@ -228,6 +264,8 @@ label {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
   -webkit-font-smoothing: antialiased;
   border-radius: 10px;
+  min-height: 75px !important;
+  height: auto;
 
 }
 
@@ -261,6 +299,8 @@ label {
 
 .jumbotron {
     text-align: center;
+  background-color: #DDDDDD;
+
 }
 .jumbotron h1 {
     font-size: 72px;
@@ -279,11 +319,17 @@ label {
 }
 
 .altTasks {
-    padding-bottom: 20px;
+    padding-bottom: 60px;
 }
 
 .clock {
     padding-bottom: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#clockWorking {
+  font-size: large;
 }
 
 .post-frame {
@@ -307,30 +353,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
 
 
 
-@media (min-width: 980px) {
-            body {
-              padding-top: 20px;
-            }
-            .linediv-l {
-              border-right: 1px black solid;
-            }
-            .linediv-r {
-              border-left: 1px black solid;
-            }
-      }
-            
-            /*Landscape phones and down*/
-      @media (max-width: 480px) {
-            .copy {
-              padding: 2.5% 10%;
-            }
-            .linediv-l {
-              border-bottom: 1px black solid;
-            }
-            .linediv-r {
-              border-top: 1px black solid;
-            }
-      }
+
       
       
       
