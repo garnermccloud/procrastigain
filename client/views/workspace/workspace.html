@@ -1,17 +1,17 @@
 <template name="workspace">
-  <div class="jumbotron">
+  <div class="container" align="center">
     <div class="mainTask">
       <div class="row">
-	<h1 id="trainerMessage">
+	<h1 id="trainerMessage" class="page-title">
 	  You really should do this
 	</h1>
       </div>
       <div class="row">
-	<a  id="mainTask" href="{{pathFor TasksList.main.path TasksList.main.task}}" class="btn-hard col-sm-8 col-sm-offset-2" style="display: table;">
+	<a  id="mainTask" href="{{pathFor TasksList.main.path TasksList.main.task}}" class="btn-main col-sm-8 col-sm-offset-2" style="display: table;">
 	  <div class="vcenter">
-	    <p class="btn-text">{{TasksList.main.title}}</p>
+	    <p class="btn-text-main">{{TasksList.main.title}}</p>
 	  </div>
-      	</a>
+	</a>
       </div>
     </div>
     <div class="altTasks">
@@ -24,14 +24,14 @@
 	<div class="col-sm-6">
 	  <a href="{{pathFor TasksList.alt1.path TasksList.alt1.task}}" class="btn-alt col-sm-8 col-sm-offset-2" style="display: table;">
 	    <div class="vcenter">
-	      <p class="btn-text">{{TasksList.alt1.title}}</p>
+	      <p class="btn-text-alt">{{TasksList.alt1.title}}</p>
 	    </div>	
 	  </a>
 	</div>
 	<div class="col-sm-6">
 	  <a href="{{pathFor TasksList.alt2.path TasksList.alt2.task}}" class="btn-alt col-sm-8 col-sm-offset-2" style="display: table;">
 	    <div class="vcenter">
-	      <p class="btn-text">{{TasksList.alt2.title}}</p>
+	      <p class="btn-text-alt">{{TasksList.alt2.title}}</p>
 	    </div>
 	  </a>
 	</div>
@@ -42,7 +42,7 @@
 	<a href="#">
 	  <div class="btn-pg-active col-sm-4 col-sm-offset-4" style="display: table;">
 	    <div class="vcenter">
-	      <p class="btn-text">Procrastigain</p>
+	      <p class="btn-text-alt"><a style="color:#ffffff">Procrastigain</a></p>
 	    </div>
 	  </div>
 	</a>

@@ -7,7 +7,7 @@ Template.procrastigainingExample.rendered = function() {
    
     iframe.style.left = 0;
     iframe.style.width = "100%";
-    iframe.style.height = "100%";
+    iframe.style.height = "500px";
     iframe.style.margin = 0;
     //iframe.style.background-color = "transparent";
     iframe.style.border = "0px none transparent";
