@@ -1,10 +1,9 @@
 {
   "packages": {
-    "iron-router": {},
-    "spin": {},
-    "paginated-subscription": {},
-    "accounts-ui-bootstrap-3": {},
-    "bootstrap3-less": {},
-    "tags": {}
+      "iron-router": {},
+      "spin": {},
+      "paginated-subscription": {},
+      "bootstrap-3": {},    
+      "accounts-ui-bootstrap-3": {}
   }
 }

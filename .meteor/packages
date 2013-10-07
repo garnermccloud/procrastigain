@@ -11,7 +11,7 @@ spin
 paginated-subscription
 intercom
 cryptojs
-less
+bootstrap-3
+jquery
 accounts-base
 accounts-ui-bootstrap-3
-bootstrap-3

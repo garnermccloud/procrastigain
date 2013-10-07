@@ -5,9 +5,8 @@
       "iron-router": {},
       "spin": {},
       "paginated-subscription": {},
-      "accounts-ui-bootstrap-3": {},
-      "bootstrap3-less": {},
-      "tags": {}
+      "bootstrap-3": {},
+      "accounts-ui-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -25,10 +24,15 @@
         "tag": "v0.1.2",
         "commit": "35e0c6112df2b4cfeb60b559276a93cac5ee2dd6"
       },
-      "tags": {
-        "git": "https://github.com/apendua/meteor-tags.git",
-        "tag": "v0.1.2.2",
-        "commit": "613382880617178276a7fbbcfe07812407d48e6b"
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v0.3.5",
+        "commit": "47996f67f3987c9f82117394effcbe1586a4fe29"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.2.3",
+        "commit": "c6aac7a331e457abd457a6f3ed030ac1411b220c"
       }
     }
   }
