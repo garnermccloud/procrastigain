@@ -41,10 +41,30 @@ Router.map(function() {
 	    return this.params;
 	}
     });
-    this.route('tasksList', {
+    this.route('allTasksList', {
 	path: '/tasks',
 	waitOn: Subscriptions['tasks']
     });
+
+    this.route('todayTasksList', {
+        path: '/tasks/today',
+        waitOn: Subscriptions['tasks']
+    });
+
+    this.route('threeDaysTasksList', {
+        path: '/tasks/threeDays',
+        waitOn: Subscriptions['tasks']
+    });
+
+    this.route('sevenDaysTasksList', {
+        path: '/tasks/sevenDays',
+        waitOn: Subscriptions['tasks']
+    });
+
+
+
+
+
     this.route('completedTasksList', {
         path: '/completedTasks',
         waitOn: Subscriptions['tasks']

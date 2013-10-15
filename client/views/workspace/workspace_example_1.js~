@@ -22,6 +22,6 @@ br> </br>That's right, you have your very own <strong>personal trainer</strong>.
     });
 
     intro.onexit(function() {
-        Router.go('tasksList');
+        Router.go('allTasksList');
     });
 }

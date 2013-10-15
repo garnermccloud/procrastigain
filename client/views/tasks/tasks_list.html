@@ -1,17 +1,69 @@
+<template name="allTasksList">
+  {{> tasksList options}}
+</template>
+
+<template name="todayTasksList">
+  {{> tasksList options}}
+</template>
+
+<template name="threeDaysTasksList">
+  {{> tasksList options}}
+</template>
+
+<template name="sevenDaysTasksList">
+  {{> tasksList options}}
+</template>
+
+
+
+
+
+
 <template name="tasksList">
 
   <h1 class="page-title">My Current Tasks</h1>
 
   <div class="tasks">
     <div class="row"  style="padding-bottom:20px">
-      <div class="row" align="center">
+      <div class="row" align="center" style="padding-bottom: 20px">
 	 <button type="button" class="btn btn-primary " onclick="Router.go('workspace');" >Go to your Personal Trainer!</button>
       </div>
-      <div class="col-sm-12" align="right">
-        <button type="button" class="btn btn-success btn-xs" onclick="Router.go('taskSubmit');" >Add New Task</button>
-      </div>
-
-
+      <div style="background-color: #DDDDDD">
+	<div class="row" align="center" style="padding-bottom: 10px">
+	  <h3>Add New Task</h3>
+	</div>
+	<div class="row">
+	  
+	  <form class="form-inline" role="form" id="submitForm">
+	    <div class="col-sm-11 col-sm-offset-1" style="padding-bottom: 10px">
+	      <div class="form-group col-sm-4">
+		<label for="title">Title</label>
+		<input name="title" type="text" value="" placeholder="Name your task" maxlength="100"/>
+	      </div>
+	      <div class="form-group col-sm-4">
+		<label for="dateDue">Date Due</label>
+		<input name="dateDue" type="date" value="{{dateHolder}}"/>
+	      </div>
+	      <div class="form-group col-sm-4">
+		<label for="appeal">Hate</label>
+		<input name="appeal" type="range" min="1" max="9" value="5"/>
+		<label for="appeal">Love</label>
+	      </div>	  
+	      
+	    </div>
+	    
+	    <div class="form-group col-sm-12" align="center">
+	      <label for="duration">Time Needed to Complete</label>
+	      <input class="input-small" name="duration-hours" type="number" placeholder="1" min="0" max="100"/>Hour(s)
+              <input class="input-small" name="duration-minutes" type="number"  placeholder="30" min="0" max="60"/>Minute(s)
+	      <input type="submit" value="Submit" class="btn btn-success"/>	  
+	    </div>
+	    
+	
+	    
+	  </form>
+	</div>
+      </div>    
     </div>
     
     {{#each tasks}}
@@ -20,7 +72,7 @@
     
     {{#unless tasks}}
     <div class="row" style="text-align: center;">
-      <h2> You don't have any active tasks.  <a href="{{pathFor 'taskSubmit'}}">Create one now!</a></h2>
+      <h2> You don't have any active tasks. Add some more!</h2>
     </div>
     {{/unless}}
   </div>

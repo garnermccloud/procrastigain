@@ -18,7 +18,7 @@
 	    <a href="{{pathFor bestPostList}}">Best</a>
 	  </li>
 	  {{#if currentUser}}
-	  <li class="{{activeRouteClass 'tasksList'}}"><a  href="{{pathFor 'tasksList'}}">My Tasks</a></li>
+	  <li class="{{activeRouteClass 'allTasksList'}}"><a  href="{{pathFor 'allTasksList'}}">My Tasks</a></li>
 	  <li><a href="{{pathFor 'postSubmit'}}">New Post</a></li>
 	  <li><a href="{{pathFor 'taskSubmit'}}">New Task</a></li>
 	  <li class="dropdown">

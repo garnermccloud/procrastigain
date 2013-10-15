@@ -15,7 +15,7 @@ Subscriptions = {
 
 Router.map(function() {
     this.route('postsList', {path: '/'});
-    this.route('tasksList', {
+    this.route('allTasksList', {
 	path: '/tasks',
 	waitOn: Subscriptions['tasks']
     });

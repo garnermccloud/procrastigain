@@ -12,6 +12,7 @@ timer = {
 	timer.interval = setInterval(function() {
             var now = time-(new Date().getTime()-start);
             if( now <= 0) {
+		document.getElementById("sound").innerHTML="<embed src='/3timer6.wav' hidden=true autostart=true loop=false>";
 		clearInterval(timer.interval);
 		setTimeLeft(0);
 		minutes = parseInt(now / 60);

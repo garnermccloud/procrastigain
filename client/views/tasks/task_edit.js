@@ -37,7 +37,7 @@ Template.taskEdit.events({
                 throwError(error.reason);
             else {
 		taskProperties._id = id;
-		Router.go('tasksList');
+		Router.go('allTasksList');
 	    }
         });
 	
@@ -50,7 +50,7 @@ Template.taskEdit.events({
         if (confirm("Delete this task?")) {
             var currentTaskId = Session.get('currentTaskId');
             Tasks.remove(currentTaskId);
-            Router.go('tasksList');
+            Router.go('allTasksList');
         }
     }
 

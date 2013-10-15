@@ -21,6 +21,6 @@ Template.tasksListExample.rendered = function() {
     });
 
     intro.onexit(function() {
-        Router.go('tasksList');
+        Router.go('allTasksList');
     });
 }

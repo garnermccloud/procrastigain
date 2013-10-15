@@ -9,7 +9,7 @@ Template.tour.rendered = function() {
                 position: 'bottom'
             },
             {
-                element: document.getElementById('tasksList'),
+                element: document.getElementById('allTasksList'),
                 intro: "Procrastigain keeps track of everything you need to do.",
                 position: 'right',
             }
@@ -29,7 +29,7 @@ Template.tour.rendered = function() {
 
     intro.onexit(function() {
 	amplify.store("introComplete",true);
-	Router.go('tasksList');
+	Router.go('allTasksList');
     });
 }
 

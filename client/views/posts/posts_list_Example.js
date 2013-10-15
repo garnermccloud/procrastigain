@@ -23,10 +23,10 @@ Template.newPostsListExample.rendered = function() {
     intro.start();
 
     intro.oncomplete(function() {
-        Router.go('tasksList');
+        Router.go('allTasksList');
     });
 
     intro.onexit(function() {
-        Router.go('tasksList');
+        Router.go('allTasksList');
     });
 }

@@ -1,9 +1,10 @@
 {
   "packages": {
-      "iron-router": {},
-      "spin": {},
-      "paginated-subscription": {},
-      "bootstrap-3": {},    
-      "accounts-ui-bootstrap-3": {}
+    "iron-router": {},
+    "spin": {},
+    "paginated-subscription": {},
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {},
+    "moment": {}
   }
 }

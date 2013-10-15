@@ -49,7 +49,7 @@ intro = introJs();
     });
 
     intro.onexit(function() {
-        Router.go('tasksList');
+        Router.go('allTasksList');
     });
 
 
