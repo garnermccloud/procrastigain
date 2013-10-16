@@ -49,6 +49,17 @@ Template.tasksList.helpers({
     dateHolder: function() {
 	return moment().add('days', 7).format("YYYY-MM-DD");
     },
+    activeRouteClass: function(/* route names */) {
+	
+	var args = Array.prototype.slice.call(arguments, 0);
+	args.pop();
+	
+	var active = _.any(args, function(name) {
+            return location.pathname === Router.path(name);
+	});
+	
+	return active && 'active';
+    },
     
 });
 

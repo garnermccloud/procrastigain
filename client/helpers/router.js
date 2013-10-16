@@ -164,6 +164,9 @@ Router.configure({
 	    return this.stop();
 	}
     },
+    after: function() {
+	_gaq.push(['trackPageview']);
+    },
 
 
   notFoundTemplate: 'notFound',

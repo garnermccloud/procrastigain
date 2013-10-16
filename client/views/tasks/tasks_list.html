@@ -24,11 +24,11 @@
   <h1 class="page-title">My Current Tasks</h1>
 
   <div class="tasks">
-    <div class="row"  style="padding-bottom:20px">
+    <div class="row"  style="padding-bottom:10px">
       <div class="row" align="center" style="padding-bottom: 20px">
 	 <button type="button" class="btn btn-primary " onclick="Router.go('workspace');" >Go to your Personal Trainer!</button>
       </div>
-      <div style="background-color: #DDDDDD">
+      <div style="background-color: #DDDDDD; padding-bottom: 20px">
 	<div class="row" align="center" style="padding-bottom: 10px">
 	  <h3>Add New Task</h3>
 	</div>
@@ -64,6 +64,14 @@
 	  </form>
 	</div>
       </div>    
+      <div class="row" align="center" style="padding-bottom: 10px; padding-top: 10px;">
+	<div class="btn-group">
+	  <a class="btn btn-primary {{activeRouteClass 'allTasksList'}}" href="{{pathFor 'allTasksList'}}">All</a>
+	  <a class="btn btn-primary {{activeRouteClass 'todayTasksList'}}" href="{{pathFor 'todayTasksList'}}">Today</a>
+	  <a class="btn btn-primary {{activeRouteClass 'threeDaysTasksList'}}" href="{{pathFor 'threeDaysTasksList'}}">Three Days</a>
+	  <a class="btn btn-primary {{activeRouteClass 'sevenDaysTasksList'}}" href="{{pathFor 'sevenDaysTasksList'}}">Seven Days</a>
+	</div>
+      </div>
     </div>
     
     {{#each tasks}}
