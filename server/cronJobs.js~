@@ -1,0 +1,10 @@
+//update tasks due date to today for when they are incomplete for user and past the due date
+var taskDateUpdater = function() {
+    console.log('cron works');
+}
+
+var cron = new Meteor.Cron( {
+      events:{
+        "* * * * *"  : taskDateUpdater
+      }
+    });

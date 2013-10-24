@@ -31,6 +31,23 @@ img {
   max-width: 100%;
 }
 
+@font-face {
+    font-family: "logoFont";
+    src: url('/fonts/freshman-webfont.eot');
+    src: url('/fonts/freshman-webfont.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/freshman-webfont.woff') format('woff'),
+    url('/fonts/freshman-webfont.ttf') format('truetype'),
+    url('/fonts/freshman-webfont.svg#freshmannormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#brand {
+    font-family: "logoFont";
+    color: #ee7f2d;
+    font-size: 20pt;
+}
 
 
 .navbar-static-top {
