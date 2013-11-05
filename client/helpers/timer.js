@@ -9,6 +9,7 @@ timer = {
 	var minutes = parseInt(time/1000/ 60);
         var seconds = parseInt(time/1000 % 60);
 	var useSound = true;
+	var useTitleAlert = true;
 
 	clock.innerHTML = timer.clockStyle(minutes) + ":" + timer.clockStyle(seconds);
 	timer.interval = setInterval(function() {
@@ -18,6 +19,15 @@ timer = {
 		useSound = false;
 		document.getElementById("sound").innerHTML="<audio autoplay><source src='/3timer6.wav' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
 	    }		
+	     if (now < (2*1000) && useTitleAlert) {
+		 useTitleAlert = false;
+		 $.titleAlert("Timer Finished!", {
+		     requireBlur:true,
+		     stopOnFocus:true,
+		     interval:500
+		 });
+	     }
+		 
 	    if( now <= 0) {
 		setTimeLeft(0);	
 		clearInterval(timer.interval);
