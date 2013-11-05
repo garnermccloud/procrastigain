@@ -5,7 +5,7 @@ Template.header.helpers({
     args.pop();    
 
     var active = _.any(args, function(name) {
-	return location.pathname === Router.path(name);
+	return Router.current().route.name === name;
     });
 
     return active && 'active';

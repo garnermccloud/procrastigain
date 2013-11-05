@@ -8,13 +8,13 @@ Template.breakTime.rendered = function() {
     clock.start(time,document.getElementById('clockWorking'));
 
    
-    function timeUp() { return clock.getTimeLeft().toString() == "0";};
+    function timeUp2() { return clock.getTimeLeft().toString() == "0";};
     function goToWorkspace() { 
 
 	clock.clear();
 	Router.go('workspace'); 
 };
-    when(timeUp, goToWorkspace, 2000);
+    when(timeUp2, goToWorkspace, 2000);
   
 };
 

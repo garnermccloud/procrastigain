@@ -8,13 +8,19 @@ timer = {
 	
 	var minutes = parseInt(time/1000/ 60);
         var seconds = parseInt(time/1000 % 60);
+	var useSound = true;
+
 	clock.innerHTML = timer.clockStyle(minutes) + ":" + timer.clockStyle(seconds);
 	timer.interval = setInterval(function() {
             var now = time-(new Date().getTime()-start);
-            if( now <= 0) {
-		document.getElementById("sound").innerHTML="<embed src='/3timer6.wav' hidden=true autostart=true loop=false>";
+	    
+	    if (now < (5*1000) && useSound) {
+		useSound = false;
+		document.getElementById("sound").innerHTML="<audio autoplay><source src='/3timer6.wav' type='audio/mpeg'>Your browser does not support the audio element.</audio>";
+	    }		
+	    if( now <= 0) {
+		setTimeLeft(0);	
 		clearInterval(timer.interval);
-		setTimeLeft(0);
 		minutes = parseInt(now / 60);
 		seconds = parseInt(now % 60);
 		clock.innerHTML = timer.clockStyle(minutes) + ":" + timer.clockStyle(seconds);
@@ -34,8 +40,7 @@ timer = {
     },
     
     clear: function() {
-	timer.time = -1;
-        clearInterval(timer.interval);
+	clearInterval(timer.interval);
     },
     clockStyle: function(time) {
 	if (time.toString().length == 1)

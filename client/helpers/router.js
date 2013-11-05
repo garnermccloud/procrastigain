@@ -10,7 +10,6 @@ submittedPostsHandle = Meteor.subscribeWithPagination('submittedPosts', 10);
 taggedPostsHandle = Meteor.subscribeWithPagination('taggedPosts',Session.get('currentTag'), 10);
 
 
-
 Subscriptions = {
     newPosts: newPostsHandle,
     bestPosts: bestPostsHandle,
@@ -148,11 +147,18 @@ Router.map(function() {
 
 
 Router.configure({
-    layout: 'main',
+    layoutTemplate: 'main',
 
 
     before: function() {
-	var routeName = this.context.route.name;
+	for (var i = 0; i < timeouts.length; i++) {
+	    clearTimeout(timeouts[i]);
+	}
+	//quick reset of the timer array you just cleared
+	timeouts = [];
+	if (typeof clock != "undefined") clock.clear();
+	
+	var routeName = this.route.name;
 	clearErrors();
 	// no need to check at these URLs
 	if (_.include(['login', 'passwordReset', 'newPostsList', 'bestPostsList', 'taggedPostsList', 'landing', 'postPage', 'accessDenied' /*, etc */], routeName))
