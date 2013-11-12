@@ -41,12 +41,24 @@ Template.workspace.helpers({
 	  alt2: alt2
       };
       return TasksList;
-  }
+  },
+    
+    reusableApps: function() {
+        reusableApps = ReusableApps.find({userId: Meteor.userId()});
+	
+        if (reusableApps.count() == 0) {
+            return false;
+        }
+        else {
+            return reusableApps;
+        }
+    }
+
 
 });
 
 Template.workspace.events({
-    'click .btn-pg-active': function(e) {
+    'click #pgWithPost': function(e) {
 	e.preventDefault();
 	var post;
 	
@@ -60,5 +72,12 @@ Template.workspace.events({
 		Router.go('procrastigaining', post);
 	    }
 	});
+    },
+    'click #pgWithApp': function(e) {
+	e.preventDefault();
+	var app =  {
+	    '_id': $('#reusableAppsEditDropdown').val()
+	};
+	Router.go('procrastigainingApp', app);
     }
 });

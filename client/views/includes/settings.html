@@ -41,5 +41,39 @@
       </div>
     </div>
   </form>
+  
+  <div class="row">
+    <h2>Reusable Apps</h2>
+  </div></br>
+  <form class="reusableAppsForm">
+    
+    <div class="control-group">
+      <label class="control-label" for="reusableAppsEditDropdown">Select one to edit</label>
+      <div class="controls">
+        <select id="reusableAppsEditDropdown">
+	  
+	  {{#each reusableApps}}
+	  <option>{{title}}</option>
+	  {{/each}}
+	  
+	  {{#unless reusableApps}}
+	  <option>None</option>
+	  {{/unless}}
+	  
+	</select>
+      </div>
+    </div>
+    {{#if reusableApps}}
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" value="Edit" class="btn btn-primary submit"/>
+      </div>
+    </div>
+    {{/if}}
+    
+    
+  </form>
+  
+  
   {{/if}}
 </template>

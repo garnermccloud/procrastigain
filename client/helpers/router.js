@@ -15,6 +15,7 @@ Subscriptions = {
     bestPosts: bestPostsHandle,
     submittedPosts: submittedPostsHandle,
     tasks: Meteor.subscribe('tasks'),
+    reusableApps: Meteor.subscribe('reusableApps'),
     singlePost: function() {
 	return Meteor.subscribe('singlePost', Session.get('currentPostId'));
     }
@@ -86,6 +87,13 @@ Router.map(function() {
 
     this.route('postSubmit', {path: '/submit/post'});
     
+
+    this.route('reusableAppSubmit', {path: '/submit/reusableApp'});
+
+
+
+
+
     this.route('taskPage', {
 	path: '/tasks/:_id',
 	data: function() { Session.set('currentTaskId', this.params._id);
@@ -110,10 +118,18 @@ Router.map(function() {
     });
     this.route('procrastigaining', {
 	before: function() {  Session.set('currentPostId', this.params._id);},
-	path: '/procrastigaining/:_id',
+	path: '/procrastigaining/post/:_id',
 	data: function() { return Posts.findOne(this.params._id,{reactive: false}); },
 	waitOn: Subscriptions['singlePost']
     });
+
+    this.route('procrastigainingApp', {
+        before: function() {  Session.set('currentAppId', this.params._id);},
+        path: '/procrastigaining/app/:_id',
+        data: function() { return ReusableApps.findOne(this.params._id,{reactive: false}); },
+        waitOn: Subscriptions['reusableApps']
+    });
+
     
     this.route('breakTime', {
 	path: '/breakTime',

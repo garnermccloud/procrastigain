@@ -31,11 +31,11 @@ Template.taggedPostsList.helpers({
 	return {
 	    sort: {votes: -1, submitted: -1},
             handle: bestPostsHandle,
-	    tag: this._id
+	    tag: Session.get('currentTag')
         }
     },
     tag: function() {
-	return this._id;
+	return Session.get('currentTag');
     }
 });
 

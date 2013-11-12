@@ -19,6 +19,11 @@ Meteor.publish('singlePost', function(id) {
   return Posts.find(id);
 });
 
+Meteor.publish('reusableApps', function() {
+    return ReusableApps.find({userId:this.userId});
+});
+
+
 Meteor.publish('tasks', function() {
     return Tasks.find({userId:this.userId});
 });

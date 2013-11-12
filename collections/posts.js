@@ -8,7 +8,7 @@ Posts.allow({
 
 Posts.deny({
   update: function(userId, post, fieldNames) {
-    // may only edit the following two fields:
+    // may only edit the following three fields:
     return (_.without(fieldNames, 'url', 'title', 'tags').length > 0);
   }
 });
@@ -126,7 +126,7 @@ Meteor.methods({
 	    var post = Posts.findOne({ _id: { $nin: user.postsRead } }, {sort: {votes: -1, submitted: 1}});
 
 	if (!post)
-	    throw new Meteor.Error(422, "You've read all of the posts under your interests. Add more interests!");
+	    throw new Meteor.Error(422, "You've read all of the posts. Submit a new one!");
 	
 	
 	return post._id;
