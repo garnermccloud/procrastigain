@@ -22,7 +22,7 @@ Subscriptions = {
     favoritePosts: favoritePostsHandle,
     readPosts: readPostsHandle,
     tasks: Meteor.subscribe('tasks'),
-    reusableApps: Meteor.subscribe('reusableApps'),
+    //    reusableApps: Meteor.subscribe('reusableApps'),
     procrastigainPost:  Meteor.subscribe('procrastigainPost', amplify.store('procrastigainPostId')),
     singlePost: function() {
 	return Meteor.subscribe('singlePost', Session.get('currentPostId'));
@@ -106,7 +106,7 @@ Router.map(function() {
     this.route('postSubmit', {path: '/submit/post'});
     
 
-    this.route('reusableAppSubmit', {path: '/submit/reusableApp'});
+    //    this.route('reusableAppSubmit', {path: '/submit/reusableApp'});
 
 
 
