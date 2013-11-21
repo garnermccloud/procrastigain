@@ -19,6 +19,8 @@ Meteor.publish('favoritePosts', function() {
         var user = Meteor.users.findOne(this.userId);
         //var user is the same info as would be given in Meteor.user();
     }
+    if (!user) return;
+
     var favoritePosts = [];
     if (user.posts) {
 	for (var i=0; i < user.posts.length; i++) {
@@ -34,6 +36,9 @@ Meteor.publish('readPosts', function() {
         var user = Meteor.users.findOne(this.userId);
         //var user is the same info as would be given in Meteor.user();
     }
+
+    if (!user) return;
+
     var readPosts = [];
     if (user.posts) {
         for (var i=0; i < user.posts.length; i++) {
