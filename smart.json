@@ -4,7 +4,9 @@
     "spin": {},
     "paginated-subscription": {},
     "bootstrap-3": {},
-    "accounts-ui-bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {
+	"git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git"
+    },
     "moment": {}
   }
 }
