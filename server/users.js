@@ -17,6 +17,42 @@
     });
 
 
+/*
+User = {
+    tags: ["computers", "cooking", "startups"],
+    taskTime: an int representing time for each task work session,
+    breakTime: an int representing time for each break session,
+    procrastigainTime: an int representing time for each procrastigain session,
+    posts: [
+	post1 = {
+	    id: postId,
+	    read: false,
+	    favorite: false,
+	    dates: [ 
+		[startDate1,endDate1], 
+		[startDate2,endDate2], 
+		[startDate3,endDate3], 
+		    ... 
+	    ]
+	},
+	 post2 = {
+            id: postId,
+            read: true,
+            favorite: false,
+            dates: [
+                [startDate1,endDate1],
+                [startDate2,endDate2],
+                [startDate3,endDate3],
+                    ...
+            ]
+        }
+    ]
+}
+*/	
+    
+    
+
+
 
 
 
@@ -48,7 +84,7 @@ Accounts.onCreateUser(function(options, user) {
     }
     
     user.tags = ["computers", "startups", "cooking"];
-    user.postsRead = [];
+    user.posts = [];
     user.taskTime = 25*60;
     user.breakTime = 5*60;
     user.procrastigainTime = 15*60;

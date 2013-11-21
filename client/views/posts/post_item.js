@@ -13,12 +13,56 @@ Template.postItem.helpers({
     
     upvotedClass: function() {
 	var userId = Meteor.userId();
-	if (userId && !_.include(this.upvoters, userId)) {
+	if (!userId)
+            return 'disabled';
+	else if (userId && !_.include(this.upvoters, userId)) {
 	    return 'btn-primary upvoteable';
 	} else {
-	    return 'disabled';
+	    return 'btn-link upvoteable';
 	}
     },
+
+    favoriteButton: function() {
+        var user = Meteor.user();
+	if (!user._id) 
+	    return '';
+	
+	var postsFavorite = [];
+	if (user.posts){
+            for (var i=0; i<user.posts.length; i++) {
+                if (user.posts[i].favorite == true)
+                    postsFavorite.push(user.posts[i]._id);
+            }
+        }
+	
+        if (!_.include(postsFavorite, this._id)) {
+            return '<a href="#" class="favoriteable btn-xs btn-primary">Add to favorites</a>';
+        } else {
+            return '<a href="#" class="favoriteable btn-xs btn-link">Remove from favorites</a>';
+        }
+    },
+
+     readButton: function() {
+        var user = Meteor.user();
+        if (!user._id)
+            return '';
+
+        var postsRead = [];
+        if (user.posts){
+            for (var i=0; i<user.posts.length; i++) {
+                if (user.posts[i].read == true)
+                    postsRead.push(user.posts[i]._id);
+            }
+        }
+
+        if (!_.include(postsRead, this._id)) {
+            return '<a href="#" class="readable btn-xs btn-primary">Move to Read</a>';
+        } else {
+            return '<a href="#" class="readable btn-xs btn-link">Move to Unread</a>';
+        }
+    },
+
+
     
     tags: function() {
 	
@@ -53,8 +97,19 @@ Template.postItem.rendered = function(){
 };
 
 Template.postItem.events({
-  'click .upvoteable': function(e) {
-    e.preventDefault();
-    Meteor.call('upvote', this._id);
-  }
+    'click .upvoteable': function(e) {
+	e.preventDefault();
+	Meteor.call('upvote', this._id);
+    },
+    
+     'click .favoriteable': function(e) {
+        e.preventDefault();
+        Meteor.call('favorite', this._id);
+    },
+
+       'click .readable': function(e) {
+        e.preventDefault();
+        Meteor.call('read', this._id);
+    },
+
 });

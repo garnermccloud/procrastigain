@@ -17,6 +17,18 @@
   {{> postsList options}}
 </template>
 
+<template name="favoritePostsList">
+  <h1 class="page-title">My Favorite Posts</h1>
+  {{> postsList options}}
+</template>
+
+<template name="readPostsList">
+  <h1 class="page-title">My Read Posts</h1>
+  {{> postsList options}}
+</template>
+
+
+
 <template name="taggedPostsList">
   <h1 class="page-title">Posts Tagged with {{tag}}</h1>
 

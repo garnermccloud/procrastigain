@@ -1,3 +1,5 @@
+
+/*
 ReusableApps = new Meteor.Collection('reusableApps');
 
 ReusableApps.allow({
@@ -63,3 +65,6 @@ Meteor.methods({
         return reusableAppId;
     }
 });
+
+
+*/

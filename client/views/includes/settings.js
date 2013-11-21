@@ -10,16 +10,6 @@ Template.settings.helpers({
     },
     tagString: function() {
 	return Meteor.user().tags.toString();
-    },
-    reusableApps: function() {
-	reusableApps = ReusableApps.find({userId: Meteor.userId()});
-	
-	if (reusableApps.count() == 0) {
-	    return false;
-	}
-	else {
-	    return reusableApps;
-	}
     }
 });
 
@@ -53,8 +43,6 @@ Template.settings.events({
 		Router.go('profile');
 	    }
 	});
-    },
-    
-    'submit form .reusableAppsForm': function(e) {
     }
+   
 });

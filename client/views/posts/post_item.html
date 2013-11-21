@@ -1,6 +1,7 @@
 <template name="postItem">
   <div class="post row">
     <a href="#" class="upvote btn {{upvotedClass}}">+1</a>
+    
     <div class="post-content">
       <h3><a href="{{pathFor 'procrastigaining' this}}">{{title}}</a><span>{{domain}}</span></h3>
       <p>
@@ -10,13 +11,18 @@
         {{#if ownPost}}<a href="{{pathFor 'postEdit' this}}">Edit</a>{{/if}}
       </p>
       <p>
-      Tags: 
-      {{#each tags}}
+	Tags: 
+	{{#each tags}}
 	{{{this}}},
-      {{/each}}
+	{{/each}}
+      </p>
+      <p>
+	{{{favoriteButton}}}
+	{{{readButton}}}	
       </p>
       
     </div>
     <a href="{{pathFor 'postPage'}}" class="discuss btn btn-primary">Discuss</a>
+    
   </div>
 </template>

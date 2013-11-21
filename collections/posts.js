@@ -100,16 +100,194 @@ Meteor.methods({
 	var post = Posts.findOne(postId);
 	if (!post)
 	    throw new Meteor.Error(422, 'Post not found');
-	if (_.include(post.upvoters, user._id))
-	    throw new Meteor.Error(422, 'Already upvoted this post');
-	Posts.update({
-	    _id: postId, 
-	    upvoters: {$ne: user._id}
-	}, {
-	    $addToSet: {upvoters: user._id},
-	    $inc: {votes: 1}
-	});
+	if (_.include(post.upvoters, user._id)) {	    
+	    //throw new Meteor.Error(422, 'Already upvoted this post');
+	    Posts.update({
+                _id: postId,
+                upvoters: user._id
+            }, {
+                $pull: {upvoters: user._id},
+		$inc: {votes: -1}
+            });
+	    
+	}
+	else {
+	    Posts.update({
+		_id: postId, 
+		upvoters: {$ne: user._id}
+	    }, {
+		$addToSet: {upvoters: user._id},
+		$inc: {votes: 1}
+	    });
+	}
     },
+
+    favorite: function(postId) {
+        //three states
+	//0 - post isn't in the users post
+	//1 - the post is in the users post and favorite = false
+	//2 - the post is in the users post and favorite = true
+	
+	
+	var user = Meteor.user();
+	
+	// ensure the user is logged in
+	if (!user)throw new Meteor.Error(401, "You need to login first!");
+	
+	var inUserPosts = false;
+	var favorite = false;
+	
+	
+	if (user.posts){
+            for (var i=0; i<user.posts.length; i++) {
+                if (user.posts[i]._id == postId) {
+                    inUserPosts = true;
+		    
+		    if (user.posts[i].favorite)
+			favorite = true;
+		    break;
+		}
+	    }
+	}
+  
+	//state 0
+	if  (!inUserPosts) {
+	    //add the post to the users post list and mark favorite it as true
+	    var post = {
+		_id: postId,
+		read: false,
+		favorite: true,
+		dates: []
+            };
+	    Meteor.users.update(
+		user._id,
+		{ 
+		    $push: {
+			posts: post
+		    } 
+		}
+	    );
+	    return;
+	}
+	
+	// state 1
+	else if (!favorite) {
+
+	    //update the post in the users post list by marking favorite as true
+	    //note: positional update on works on server with regular mongodb, client side minimongo does not support yet 
+	    Meteor.users.update(
+		{
+		    _id: user._id,
+		    "posts._id": postId
+		}, 
+		{
+		    $set: {
+			"posts.$.favorite": true
+		    }
+		}
+	    );
+	    return;
+	}  
+	else {
+	    //update the post in the users post list by marking favorite as false
+	    Meteor.users.update(
+                {
+                    _id: user._id,
+                    "posts._id": postId
+                },
+                {
+                    $set: {
+                        "posts.$.favorite": false
+                    }
+                }
+	    );
+	    return;
+	}
+    },
+
+   read: function(postId) {
+        //three states
+        //0 - post isn't in the users post
+        //1 - the post is in the users post and read = false
+        //2 - the post is in the users post and read = true
+
+       var user = Meteor.user();
+       
+       // ensure the user is logged in
+       if (!user)
+	   throw new Meteor.Error(401, "You need to login first!");
+       
+       var inUserPosts = false;
+       var read = false;
+
+       
+       if (user.posts){
+           for (var i=0; i<user.posts.length; i++) {
+               if (user.posts[i]._id == postId) {
+                   inUserPosts = true;
+		   
+                   if (user.posts[i].read)
+                        read = true;
+                   break;
+               }
+           }
+       }
+       
+       //state 0
+       if  (!inUserPosts) {
+           //add the post to the users post list and mark read as true
+           var post = {
+               _id: postId,
+               read: true,
+               favorite: false,
+               dates: []
+           };
+           Meteor.users.update(
+               user._id,
+               {
+                   $push: {
+                       posts: post
+                   }
+               }
+           );
+           return;
+       }
+       
+       // state 1
+       else if (!read) {
+	   
+           //update the post in the users post list by marking read as true
+           //note: positional update on works on server with regular mongodb, client side minimongo does not support yet
+           Meteor.users.update(
+               {
+                   _id: user._id,
+                   "posts._id": postId
+               },
+               {
+                   $set: {
+                       "posts.$.read": true
+                   }
+               }
+           );
+           return;
+       }
+       else {
+           //update the post in the users post list by marking read as false
+           Meteor.users.update(
+               {
+                   _id: user._id,
+                   "posts._id": postId
+               },
+               {
+                   $set: {
+                       "posts.$.read": false
+                   }
+               }
+           );
+           return;
+       }
+   },
+    
     
     procrastigaining: function() {
 	var user = Meteor.user();
@@ -118,15 +296,37 @@ Meteor.methods({
         if (!user)
             throw new Meteor.Error(401, "You need to login to do this");
 
-	//find a post that matches the user's interests
-	var post = Posts.findOne({ _id: { $nin: user.postsRead } },{tags: { $in: user.tags } } ,{sort: {votes: -1, submitted: 1}});
-	
-	// if there aren't any posts left that match the user's interest, got through all posts
-	if (!post)
-	    var post = Posts.findOne({ _id: { $nin: user.postsRead } }, {sort: {votes: -1, submitted: 1}});
 
-	if (!post)
-	    throw new Meteor.Error(422, "You've read all of the posts. Submit a new one!");
+	//get all of the posts already read or favorited by the user so they can be queried
+        var postsRead = [];
+        var postsFavorite = [];
+
+	if (user.posts){
+	    for (var i=0; i<user.posts.length; i++) {
+		if (user.posts[i].read == true)
+                    postsRead.push(user.posts[i]._id);
+		if (user.posts[i].favorite == true)
+                    postsFavorite.push(user.posts[i]._id);
+            }
+	}
+
+
+	 //find a post that is in the user's favorites but hasn't been read
+        var post = Posts.findOne({ $and: [ {_id: {$nin: postsRead} }, {_id: {$in: postsFavorite } } ] }, {$sort: {votes: -1, submitted: 1}} );
+	
+        // if there aren't any posts left that match the user's favorites, find one that matches the user's tags
+        if (!post)
+            var post = Posts.findOne({ $and: [ {_id: { $nin: postsRead } },{tags: { $in: user.tags } } ] },{$sort: {votes: -1, submitted: 1}});
+	
+        // if there aren't any posts that match the user's tags, then find any post that the user hasn't read
+        if (!post)
+            var post = Posts.findOne({_id: { $nin: postsRead } }, {$sort: {votes: -1, submitted: 1} } );
+	
+
+        if (!post)
+            throw new Meteor.Error(422, "You've read all of the posts. Submit a new one!");
+	
+
 	
 	
 	return post._id;

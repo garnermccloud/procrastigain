@@ -12,3 +12,7 @@ Template.header.helpers({
   }
 });
 
+Template.header.rendered = function() {
+     $('#login-dropdown-list a').removeAttr("href");
+}
+

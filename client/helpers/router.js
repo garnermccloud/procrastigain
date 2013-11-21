@@ -9,16 +9,25 @@ submittedPostsHandle = Meteor.subscribeWithPagination('submittedPosts', 10);
 
 taggedPostsHandle = Meteor.subscribeWithPagination('taggedPosts',Session.get('currentTag'), 10);
 
+favoritePostsHandle = Meteor.subscribeWithPagination('favoritePosts', 10);
+
+readPostsHandle = Meteor.subscribeWithPagination('readPosts', 10);
+
+
 
 Subscriptions = {
     newPosts: newPostsHandle,
     bestPosts: bestPostsHandle,
     submittedPosts: submittedPostsHandle,
+    favoritePosts: favoritePostsHandle,
+    readPosts: readPostsHandle,
     tasks: Meteor.subscribe('tasks'),
     reusableApps: Meteor.subscribe('reusableApps'),
+    procrastigainPost:  Meteor.subscribe('procrastigainPost', amplify.store('procrastigainPostId')),
     singlePost: function() {
 	return Meteor.subscribe('singlePost', Session.get('currentPostId'));
     }
+    
 };
 
 Deps.autorun(function() {
@@ -34,6 +43,15 @@ Router.map(function() {
     this.route('newPostsList', {path:'/new'});
     this.route('bestPostsList', {path:'/best'});
     this.route('submittedPostsList', {path: '/submitted'});
+    this.route('favoritePostsList', {
+	path: '/favorite',
+	waitOn: Subscriptions['favoritePosts']
+    });
+    this.route('readPostsList', {
+	path: '/read',
+	waitOn: Subscriptions['readPosts']
+    });
+
     this.route('taggedPostsList', {
 	path: '/tags/:_id',
 	data: function() { 
@@ -116,11 +134,15 @@ Router.map(function() {
                          return Tasks.findOne(this.params._id);},
         waitOn: Subscriptions['tasks']
     });
+    
+
     this.route('procrastigaining', {
-	before: function() {  Session.set('currentPostId', this.params._id);},
-	path: '/procrastigaining/post/:_id',
-	data: function() { return Posts.findOne(this.params._id,{reactive: false}); },
-	waitOn: Subscriptions['singlePost']
+	before: function() {  amplify.store('procrastigainPostId', this.params._id);},
+        path: '/procrastigaining/:_id',
+        data: function() { 
+	    console.log('Subscription returned? ', Subscriptions['procrastigainPost']);
+	    return Posts.findOne(this.params._id,{reactive: false}); },
+        waitOn: Subscriptions['procrastigainPost']
     });
 
     this.route('procrastigainingApp', {
@@ -175,6 +197,11 @@ Router.configure({
 	if (typeof clock != "undefined") clock.clear();
 	
 	var routeName = this.route.name;
+	
+	//update route states
+	amplify.store('previousRoute',amplify.store('currentRoute'));
+	amplify.store('currentRoute', routeName);
+
 	clearErrors();
 	// no need to check at these URLs
 	if (_.include(['login', 'passwordReset', 'newPostsList', 'bestPostsList', 'taggedPostsList', 'landing', 'postPage', 'accessDenied' /*, etc */], routeName))
@@ -185,6 +212,8 @@ Router.configure({
 	    this.render(Meteor.loggingIn() ? this.loadingTemplate : 'accessDenied');
 	    return this.stop();
 	}
+	return;
+	
     },
     after: function() {
 	_gaq.push(['trackPageview']);

@@ -22,6 +22,10 @@ body {
 }
 
 
+a {
+    cursor: pointer;
+}
+
 p {
     word-break: break-word;
     overflow: visible;
@@ -99,7 +103,7 @@ margin-bottom: 0px !important;
 .post .post-content h3 a {
     display: inline-block;
     margin-right: 5px;
-  color: #ffffff !important;
+    color: #ffffff !important;
 }
 .post .post-content h3 span {
     font-weight: normal;
@@ -107,12 +111,29 @@ margin-bottom: 0px !important;
     display: inline-block;
     color: #aaaaaa;
 }
-.post .post-content p { margin: 0 }
+.post .post-content p { 
+    margin: 0;
+    color: #666666;
+}
 .post .discuss {
     display: block;
     float: right;
     margin-top: 7px;
 }
+
+.post .readable {
+    display: block;
+    margin: 7px 12px 0 0;
+    float: left;
+}
+
+.post .favoriteable {
+    display: block;
+    margin: 7px 12px 0 0;
+    float: left;
+}
+
+
 .comments {
     list-style-type: none;
     margin: 0;
@@ -347,8 +368,9 @@ ul.nav li.dropdown:hover ul.dropdown-menu{ display: block; }
      
  }
 
-
-
+.navbar-btn {
+    margin-left:10px;
+}
 
       
       

@@ -46,6 +46,14 @@
 	    </li>
 	    {{#if currentUser}}
 	    <li>
+              <a href="{{pathFor 'readPostsList'}}">Already Read</a>
+            </li>
+
+	    <li>
+              <a href="{{pathFor 'favoritePostsList'}}">My Favorites</a>
+            </li>
+
+	    <li>
 	      <a href="{{pathFor 'submittedPostsList'}}">My Submitted Posts</a>
 	    </li>
 	    {{/if}}
