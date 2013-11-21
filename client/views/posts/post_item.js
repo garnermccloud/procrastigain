@@ -24,7 +24,7 @@ Template.postItem.helpers({
 
     favoriteButton: function() {
         var user = Meteor.user();
-	if (!user._id) 
+	if (!user) 
 	    return '';
 	
 	var postsFavorite = [];
@@ -44,7 +44,7 @@ Template.postItem.helpers({
 
      readButton: function() {
         var user = Meteor.user();
-        if (!user._id)
+        if (!user)
             return '';
 
         var postsRead = [];

@@ -148,13 +148,14 @@ margin-bottom: 0px !important;
 }
 .comments li h4 a { font-size: 12px }
 .comments li p:last-child { margin-bottom: 0 }
+
 .dropdown-menu span {
-    display: block;
+/*    display: block;
     padding: 3px 20px;
     clear: both;
     line-height: 20px;
     color: #bbb;
-    white-space: nowrap;
+    white-space: nowrap; */
 }
 .load-more {
     display: block;
